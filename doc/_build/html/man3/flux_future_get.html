@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux_future_get(3) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux_future_wait_all_create(3)" href="flux_future_wait_all_create.html" />
+    <link rel="prev" title="flux_future_create(3)" href="flux_future_create.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../man1/index.html">man1</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux_attr_get.html">flux_attr_get(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_aux_set.html">flux_aux_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_child_watcher_create.html">flux_child_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_content_load.html">flux_content_load(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_core_version.html">flux_core_version(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_event_decode.html">flux_event_decode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_event_publish.html">flux_event_publish(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_event_subscribe.html">flux_event_subscribe(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_fatal_set.html">flux_fatal_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_fd_watcher_create.html">flux_fd_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_flags_set.html">flux_flags_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_future_and_then.html">flux_future_and_then(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_future_create.html">flux_future_create(3)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux_future_get(3)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">OVERVIEW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#errors">ERRORS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux_future_wait_all_create.html">flux_future_wait_all_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_get_rank.html">flux_get_rank(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_get_reactor.html">flux_get_reactor(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_handle_watcher_create.html">flux_handle_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_idle_watcher_create.html">flux_idle_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_commit.html">flux_kvs_commit(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_copy.html">flux_kvs_copy(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_getroot.html">flux_kvs_getroot(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_lookup.html">flux_kvs_lookup(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_namespace_create.html">flux_kvs_namespace_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_txn_create.html">flux_kvs_txn_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_log.html">flux_log(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_cmp.html">flux_msg_cmp(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_encode.html">flux_msg_encode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_handler_addvec.html">flux_msg_handler_addvec(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_handler_create.html">flux_msg_handler_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_open.html">flux_open(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_periodic_watcher_create.html">flux_periodic_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_pollevents.html">flux_pollevents(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_reactor_create.html">flux_reactor_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_reactor_now.html">flux_watcher_now(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_recv.html">flux_recv(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_request_decode.html">flux_request_decode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_request_encode.html">flux_request_encode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_requeue.html">flux_requeue(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_respond.html">flux_respond(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_response_decode.html">flux_response_decode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_rpc.html">flux_rpc(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_send.html">flux_send(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_add_completion_ref.html">flux_shell_add_completion_ref(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_add_event_context.html">flux_shell_add_event_context(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_add_event_handler.html">flux_shell_add_event_handler(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_aux_set.html">flux_shell_aux_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_current_task.html">flux_shell_current_task(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_get_flux.html">flux_shell_get_flux(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_get_info.html">flux_shell_get_info(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_getenv.html">flux_shell_getenv(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_getopt.html">flux_shell_getopt(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_killall.html">flux_shell_killall(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_log.html">flux_shell_log(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_plugstack_call.html">flux_shell_plugstack_call(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_rpc_pack.html">flux_shell_rpc_pack(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_service_register.html">flux_shell_service_register(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_task_channel_subscribe.html">flux_shell_task_channel_subscribe(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_task_get_info.html">flux_shell_task_get_info(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_task_subprocess.html">flux_shell_task_subprocess(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_signal_watcher_create.html">flux_signal_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_stat_watcher_create.html">flux_stat_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_timer_watcher_create.html">flux_timer_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_watcher_start.html">flux_watcher_start(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_zmq_watcher_create.html">flux_zmq_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idset_create.html">idset_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idset_encode.html">idset_encode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON_PACK.html">ENCODING JSON PAYLOADS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON_UNPACK.html">DECODING JSON PAYLOADS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man3</a> &raquo;</li>
+        
+      <li>flux_future_get(3)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man3/flux_future_get.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-future-get-3">
+<h1>flux_future_get(3)<a class="headerlink" href="#flux-future-get-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;flux/core.h&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">void</span> <span class="p">(</span><span class="o">*</span><span class="n">flux_continuation_f</span><span class="p">)(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_future_get</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">const</span> <span class="n">void</span> <span class="o">**</span><span class="n">result</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_future_then</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">double</span> <span class="n">timeout</span><span class="p">,</span>
+                      <span class="n">flux_continuation_f</span> <span class="n">cb</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_future_wait_for</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">double</span> <span class="n">timeout</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">flux_future_reset</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">flux_future_destroy</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">flux_future_has_error</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">flux_future_error_string</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>OVERVIEW<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A Flux future represents some activity that may be completed with reactor
+watchers and/or message handlers. It is both a handle for synchronization
+and a container for the result. A Flux future is said to be &quot;fulfilled&quot;
+when a result is available in the future container, or a fatal error has
+occurred. Flux futures were inspired by similar constructs in other
+programming environments mentioned in RESOURCES, but are not a faithful
+implementation of any particular one.</p>
+<p>Generally other Flux classes return futures, and may provide class-specific
+access function for results. The functions described in this page can be
+used to access, synchronize, and destroy futures returned from any such class.
+Authors of classes that return futures are referred to <code class="docutils literal notranslate"><span class="pre">flux_future_create(3)</span></code>.</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_get()</span></code> accesses the result of a fulfilled future. If the
+future is not yet fulfilled, it calls <code class="docutils literal notranslate"><span class="pre">flux_future_wait_for()</span></code> internally
+with a negative <em>timeout</em>, causing it to block until the future is fulfilled.
+A pointer to the result is assigned to <em>result</em> (caller must NOT free),
+or -1 is returned if the future was fulfilled with an error.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_then()</span></code> sets up a continuation callback <em>cb</em> that is called
+with opaque argument <em>arg</em> once the future is fulfilled. The continuation
+will normally use <code class="docutils literal notranslate"><span class="pre">flux_future_get()</span></code> or a class-specific access function
+to obtain the result from the future container without blocking. The
+continuation may call <code class="docutils literal notranslate"><span class="pre">flux_future_destroy()</span></code> or <code class="docutils literal notranslate"><span class="pre">flux_future_reset()</span></code>.
+If <em>timeout</em> is non-negative, the future must be fulfilled within the
+specified amount of time or the timeout fulfills it with an error (errno
+set to ETIMEDOUT).</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_wait_for()</span></code> blocks until the future is fulfilled, or <em>timeout</em>
+(if non-negative) expires. This function may be called multiple times,
+with different values for <em>timeout</em>. If the timeout expires before
+the future is fulfilled, an error is returned (errno set to ETIMEDOUT)
+but the future remains unfulfilled. If <em>timeout</em> is zero, function times
+out immediately if the future has not already been fulfilled.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_reset()</span></code> unfulfills a future, invalidating any result stored
+in the container, and preparing it to be fulfilled once again. If a
+continuation was registered, it remains in effect for the next fulfillment,
+however any timeout will have been cleared by the current fulfillment
+and must be re-established by following the <code class="docutils literal notranslate"><span class="pre">flux_future_reset()</span></code> with
+another <code class="docutils literal notranslate"><span class="pre">flux_future_then()</span></code>, if desired.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_destroy()</span></code> destroys a future, including any result contained
+within.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_has_error()</span></code> tests if an error exists in the future or not.
+It can be useful for determining if an error exists in a future or in
+other parts of code that may wrap around a future. It is commonly
+called before calling <code class="docutils literal notranslate"><span class="pre">flux_future_error_string()</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_error_string()</span></code> returns the error string stored in a
+future. If the future was fulfilled with an optional error string,
+<code class="docutils literal notranslate"><span class="pre">flux_future_error_string()</span></code> will return that string. Otherwise, it
+will return the string associated with the error number set in a
+future. If the future is a NULL pointer, not fulfilled, or fulfilled
+with a non-error, NULL is returned.</p>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">flux_future_then()</span></code>, <code class="docutils literal notranslate"><span class="pre">flux_future_get()</span></code>, and <code class="docutils literal notranslate"><span class="pre">flux_future_wait_for()</span></code>
+return zero on success. On error, -1 is returned, and errno is set
+appropriately.</p>
+</div>
+<div class="section" id="errors">
+<h2>ERRORS<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>ENOMEM</dt><dd><p>Out of memory.</p>
+</dd>
+<dt>EINVAL</dt><dd><p>Invalid argument.</p>
+</dd>
+<dt>ETIMEDOUT</dt><dd><p>A timeout passed to <code class="docutils literal notranslate"><span class="pre">flux_future_wait_for()</span></code> expired before the future
+was fulfilled.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+<p>C++ std::future: <a class="reference external" href="http://en.cppreference.com/w/cpp/thread/future">http://en.cppreference.com/w/cpp/thread/future</a></p>
+<p>Java <code class="docutils literal notranslate"><span class="pre">util.concurrent.Future</span></code>: <a class="reference external" href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html">https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Future.html</a></p>
+<p>Python3 concurrent.futures: <a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html">https://docs.python.org/3/library/concurrent.futures.html</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>flux_future_create (3)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux_future_wait_all_create.html" class="btn btn-neutral float-right" title="flux_future_wait_all_create(3)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux_future_create.html" class="btn btn-neutral float-left" title="flux_future_create(3)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

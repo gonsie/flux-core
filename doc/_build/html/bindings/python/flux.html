@@ -1,0 +1,1580 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux package &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="flux.core package" href="flux.core.html" />
+    <link rel="prev" title="flux-broker-attributes(7)" href="../../man7/flux-broker-attributes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../man1/index.html">man1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../man7/index.html">man7</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">flux package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flux.core.html">flux.core package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.constants">flux.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.debugged">flux.debugged module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.future">flux.future module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.job">flux.job module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.kvs">flux.kvs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.memoized_property">flux.memoized_property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.message">flux.message module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.rpc">flux.rpc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.security">flux.security module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.util">flux.util module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux.wrapper">flux.wrapper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flux">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>flux package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/bindings/python/flux.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-package">
+<h1>flux package<a class="headerlink" href="#flux-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flux.core.html">flux.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flux.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.core.html#module-flux.core.handle">flux.core.handle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.core.html#module-flux.core.inner">flux.core.inner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.core.html#module-flux.core.trampoline">flux.core.trampoline module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.core.html#module-flux.core.watchers">flux.core.watchers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.core.html#module-flux.core">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-flux.constants">
+<span id="flux-constants-module"></span><h2>flux.constants module<a class="headerlink" href="#module-flux.constants" title="Permalink to this headline">¶</a></h2>
+<p>Global constants for the flux interface</p>
+</div>
+<div class="section" id="module-flux.debugged">
+<span id="flux-debugged-module"></span><h2>flux.debugged module<a class="headerlink" href="#module-flux.debugged" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="flux.debugged.get_mpir_being_debugged">
+<code class="sig-prename descclassname">flux.debugged.</code><code class="sig-name descname">get_mpir_being_debugged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.debugged.get_mpir_being_debugged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.debugged.set_mpir_being_debugged">
+<code class="sig-prename descclassname">flux.debugged.</code><code class="sig-name descname">set_mpir_being_debugged</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.debugged.set_mpir_being_debugged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-flux.future">
+<span id="flux-future-module"></span><h2>flux.future module<a class="headerlink" href="#module-flux.future" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="flux.future.Future">
+<em class="property">class </em><code class="sig-prename descclassname">flux.future.</code><code class="sig-name descname">Future</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">future_handle</span></em>, <em class="sig-param"><span class="n">prefixes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pimpl_t</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.WrapperPimpl" title="flux.wrapper.WrapperPimpl"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.WrapperPimpl</span></code></a></p>
+<p>A wrapper for interfaces that create and consume flux futures</p>
+<dl class="py class">
+<dt id="flux.future.Future.InnerWrapper">
+<em class="property">class </em><code class="sig-name descname">InnerWrapper</code><span class="sig-paren">(</span><em class="sig-param">handle=None</em>, <em class="sig-param">match=&lt;ctype 'struct flux_future *'&gt;</em>, <em class="sig-param">filter_match=True</em>, <em class="sig-param">prefixes=None</em>, <em class="sig-param">destructor=&lt;bound method ? of &lt;flux.core.inner.Core object&gt;&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.InnerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.Wrapper" title="flux.wrapper.Wrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.Wrapper</span></code></a></p>
+<dl class="py method">
+<dt id="flux.future.Future.InnerWrapper.check_wrap">
+<code class="sig-name descname">check_wrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.InnerWrapper.check_wrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.error_string">
+<code class="sig-name descname">error_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.error_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base Future.get() method. Does not return a result, just blocks
+until future is fulfilled and throws OSError on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.get_flux">
+<code class="sig-name descname">get_flux</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.get_flux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.get_reactor">
+<code class="sig-name descname">get_reactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.get_reactor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.is_ready">
+<code class="sig-name descname">is_ready</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.is_ready" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.then">
+<code class="sig-name descname">then</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">callback</span></em>, <em class="sig-param"><span class="n">arg</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">- 1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.then" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.future.Future.wait_for">
+<code class="sig-name descname">wait_for</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">timeout</span><span class="o">=</span><span class="default_value">- 1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.Future.wait_for" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.future.continuation_callback">
+<code class="sig-prename descclassname">flux.future.</code><code class="sig-name descname">continuation_callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">c_future</span></em>, <em class="sig-param"><span class="n">opaque_handle</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.future.continuation_callback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-flux.job">
+<span id="flux-job-module"></span><h2>flux.job module<a class="headerlink" href="#module-flux.job" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="flux.job.EventLogEvent">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">EventLogEvent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.EventLogEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>wrapper class for a single KVS EventLog entry</p>
+<dl class="py method">
+<dt id="flux.job.EventLogEvent.context">
+<em class="property">property </em><code class="sig-name descname">context</code><a class="headerlink" href="#flux.job.EventLogEvent.context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.EventLogEvent.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#flux.job.EventLogEvent.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.EventLogEvent.timestamp">
+<em class="property">property </em><code class="sig-name descname">timestamp</code><a class="headerlink" href="#flux.job.EventLogEvent.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobEventWatchFuture">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobEventWatchFuture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">future_handle</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobEventWatchFuture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.future.Future" title="flux.future.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.future.Future</span></code></a></p>
+<p>A future returned from job.event_watch_async().
+Adds get_event() method to return an EventLogEntry event</p>
+<dl class="py method">
+<dt id="flux.job.JobEventWatchFuture.cancel">
+<code class="sig-name descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobEventWatchFuture.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a streaming job.event_watch_async() future</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobEventWatchFuture.get_event">
+<code class="sig-name descname">get_event</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">autoreset</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobEventWatchFuture.get_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the next event from a JobEventWatchFuture, or None
+if the event stream has terminated.</p>
+<p>The future is auto-reset unless autoreset=False, so a subsequent
+call to get_event() will try to fetch the next event and thus
+may block.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="flux.job.JobException">
+<em class="property">exception </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobID">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobID</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>Class used to represent a Flux JOBID</p>
+<p>JobID is a subclass of <cite>int</cite>, so may be used in place of integer.
+However, a JobID may be created from any valid RFC 19 FLUID
+encoding, including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>decimal integer (no prefix)</p></li>
+<li><p>hexidecimal integer (prefix 0x)</p></li>
+<li><p>dotted hex (dothex) (xxxx.xxxx.xxxx.xxxx)</p></li>
+<li><p>kvs dir (dotted hex with <cite>job.</cite> prefix)</p></li>
+<li><p>RFC19 F58: (Base58 encoding with prefix <cite>ƒ</cite> or <cite>f</cite>)</p></li>
+</ul>
+</div></blockquote>
+<p>A JobID object also has properties for encoding a JOBID into each
+of the above representations, e.g. jobid.f85, jobid.words, jobid.dothex...</p>
+<dl class="py method">
+<dt id="flux.job.JobID.dec">
+<em class="property">property </em><code class="sig-name descname">dec</code><a class="headerlink" href="#flux.job.JobID.dec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return decimal integer representation of a JobID</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobID.dothex">
+<em class="property">property </em><code class="sig-name descname">dothex</code><a class="headerlink" href="#flux.job.JobID.dothex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dotted hexidecimal representation of a JobID</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobID.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">'dec'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobID.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode a JobID to alternate supported format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobID.f58">
+<em class="property">property </em><code class="sig-name descname">f58</code><a class="headerlink" href="#flux.job.JobID.f58" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return RFC19 F58 representation of a JobID</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobID.hex">
+<em class="property">property </em><code class="sig-name descname">hex</code><a class="headerlink" href="#flux.job.JobID.hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return 0x-prefixed hexidecimal representation of a JobID</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobID.kvs">
+<em class="property">property </em><code class="sig-name descname">kvs</code><a class="headerlink" href="#flux.job.JobID.kvs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return KVS directory path of a JobID</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobID.words">
+<em class="property">property </em><code class="sig-name descname">words</code><a class="headerlink" href="#flux.job.JobID.words" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return words (mnemonic) representation of a JobID</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobListIdRPC">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobListIdRPC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">topic</span></em>, <em class="sig-param"><span class="n">payload</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodeid</span><span class="o">=</span><span class="default_value">4294967295</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobListIdRPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.rpc.RPC" title="flux.rpc.RPC"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.rpc.RPC</span></code></a></p>
+<dl class="py method">
+<dt id="flux.job.JobListIdRPC.get_job">
+<code class="sig-name descname">get_job</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobListIdRPC.get_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobListRPC">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobListRPC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">topic</span></em>, <em class="sig-param"><span class="n">payload</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodeid</span><span class="o">=</span><span class="default_value">4294967295</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobListRPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.rpc.RPC" title="flux.rpc.RPC"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.rpc.RPC</span></code></a></p>
+<dl class="py method">
+<dt id="flux.job.JobListRPC.get_jobs">
+<code class="sig-name descname">get_jobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobListRPC.get_jobs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobWaitFuture">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobWaitFuture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">future_handle</span></em>, <em class="sig-param"><span class="n">prefixes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pimpl_t</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobWaitFuture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.future.Future" title="flux.future.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.future.Future</span></code></a></p>
+<dl class="py method">
+<dt id="flux.job.JobWaitFuture.get_status">
+<code class="sig-name descname">get_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobWaitFuture.get_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobWaitResult">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobWaitResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">success</span></em>, <em class="sig-param"><span class="n">errstr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobWaitResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="py method">
+<dt id="flux.job.JobWaitResult.errstr">
+<em class="property">property </em><code class="sig-name descname">errstr</code><a class="headerlink" href="#flux.job.JobWaitResult.errstr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobWaitResult.jobid">
+<em class="property">property </em><code class="sig-name descname">jobid</code><a class="headerlink" href="#flux.job.JobWaitResult.jobid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobWaitResult.success">
+<em class="property">property </em><code class="sig-name descname">success</code><a class="headerlink" href="#flux.job.JobWaitResult.success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobWrapper</code><a class="headerlink" href="#flux.job.JobWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.Wrapper" title="flux.wrapper.Wrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.Wrapper</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.Jobspec">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">Jobspec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">resources</span></em>, <em class="sig-param"><span class="n">tasks</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="flux.job.Jobspec.attributes">
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#flux.job.Jobspec.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.cwd">
+<em class="property">property </em><code class="sig-name descname">cwd</code><a class="headerlink" href="#flux.job.Jobspec.cwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get working directory of job.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.dumps">
+<code class="sig-name descname">dumps</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec.dumps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.duration">
+<em class="property">property </em><code class="sig-name descname">duration</code><a class="headerlink" href="#flux.job.Jobspec.duration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.environment">
+<em class="property">property </em><code class="sig-name descname">environment</code><a class="headerlink" href="#flux.job.Jobspec.environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get (entire) environment of job.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.from_yaml_file">
+<em class="property">classmethod </em><code class="sig-name descname">from_yaml_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec.from_yaml_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.from_yaml_stream">
+<em class="property">classmethod </em><code class="sig-name descname">from_yaml_stream</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yaml_stream</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec.from_yaml_stream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.resource_counts">
+<code class="sig-name descname">resource_counts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec.resource_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the counts of each resource type in the jobspec</p>
+<p>The following jobspec would return
+<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;slot&quot;:</span> <span class="pre">12,</span> <span class="pre">&quot;core&quot;:</span> <span class="pre">18,</span> <span class="pre">&quot;memory&quot;:</span> <span class="pre">242</span> <span class="pre">}</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">slot</span>
+  <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">with</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">core</span>
+      <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">memory</span>
+      <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GB</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">slot</span>
+  <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+  <span class="nt">with</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">core</span>
+      <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">memory</span>
+      <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">24</span>
+      <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GB</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current implementation ignores the <code class="docutils literal notranslate"><span class="pre">unit</span></code> label and assumes
+they are consist across resources</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.resource_walk">
+<code class="sig-name descname">resource_walk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec.resource_walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traverse the resources in the <code class="docutils literal notranslate"><span class="pre">resources</span></code> section of the jobspec.</p>
+<p>Performs a depth-first, pre-order traversal. Yields a tuple containing
+(parent, resource, count).  <code class="docutils literal notranslate"><span class="pre">parent</span></code> is None when <code class="docutils literal notranslate"><span class="pre">resource</span></code> is a
+top-level resource. <code class="docutils literal notranslate"><span class="pre">count</span></code> is the number of that resource including the
+multiplicative effects of the <code class="docutils literal notranslate"><span class="pre">with</span></code> clause in ancestor resources.  For
+example, the following resource section, will yield a count of 2 for the
+<code class="docutils literal notranslate"><span class="pre">slot</span></code> and a count of 8 for the <code class="docutils literal notranslate"><span class="pre">core</span></code> resource.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">slot</span>
+  <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">with</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">core</span>
+      <span class="nt">count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.resources">
+<em class="property">property </em><code class="sig-name descname">resources</code><a class="headerlink" href="#flux.job.Jobspec.resources" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.setattr">
+<code class="sig-name descname">setattr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec.setattr" title="Permalink to this definition">¶</a></dt>
+<dd><p>set job attribute</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.setattr_shell_option">
+<code class="sig-name descname">setattr_shell_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.Jobspec.setattr_shell_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>set job attribute: shell option</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.stderr">
+<em class="property">property </em><code class="sig-name descname">stderr</code><a class="headerlink" href="#flux.job.Jobspec.stderr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.stdin">
+<em class="property">property </em><code class="sig-name descname">stdin</code><a class="headerlink" href="#flux.job.Jobspec.stdin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.stdout">
+<em class="property">property </em><code class="sig-name descname">stdout</code><a class="headerlink" href="#flux.job.Jobspec.stdout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.tasks">
+<em class="property">property </em><code class="sig-name descname">tasks</code><a class="headerlink" href="#flux.job.Jobspec.tasks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flux.job.Jobspec.top_level_keys">
+<code class="sig-name descname">top_level_keys</code><em class="property"> = {'attributes', 'resources', 'tasks', 'version'}</em><a class="headerlink" href="#flux.job.Jobspec.top_level_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.Jobspec.version">
+<em class="property">property </em><code class="sig-name descname">version</code><a class="headerlink" href="#flux.job.Jobspec.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.JobspecV1">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">JobspecV1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">resources</span></em>, <em class="sig-param"><span class="n">tasks</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobspecV1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.job.Jobspec" title="flux.job.Jobspec"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.job.Jobspec</span></code></a></p>
+<dl class="py method">
+<dt id="flux.job.JobspecV1.from_batch_command">
+<em class="property">classmethod </em><code class="sig-name descname">from_batch_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">script</span></em>, <em class="sig-param"><span class="n">jobname</span></em>, <em class="sig-param"><span class="n">args</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_slots</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">cores_per_slot</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">gpus_per_slot</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_nodes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">broker_opts</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobspecV1.from_batch_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Jobspec describing a nested Flux instance controlled by a script.</p>
+<p>The nested Flux instance will execute the script with the given
+command-line arguments after copying it and setting the executable bit.
+Conceptually, this differs from the <cite>from_nest_command</cite>, which also creates a
+nested Flux instance, in that it a) requires the initial program of the new
+instance to be an executable text file and b) creates the initial program
+from a string rather than using an executable existing somewhere on the
+filesystem.</p>
+<p>Use setters to assign additional properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>script</strong> -- contents of the script to execute, as a string. The
+script should have a shebang (e.g. <cite>#!/bin/sh</cite>) at the top.</p></li>
+<li><p><strong>jobname</strong> (<em>str</em>) -- name to use as the argv[0] for this job.
+This will be the default job name reported by Flux.
+(Note the actual argv is overridden by the job shell when executed.)</p></li>
+<li><p><strong>args</strong> (iterable of <cite>str</cite>) -- arguments to pass to <cite>script</cite></p></li>
+<li><p><strong>num_slots</strong> -- number of resource slots to create. Slots are an abstraction,
+and are only used (along with <cite>cores_per_slot</cite> and <cite>gpus_per_slot</cite>) to
+determine the nested instance's allocation size and layout.</p></li>
+<li><p><strong>cores_per_slot</strong> -- number of cores to allocate per slot</p></li>
+<li><p><strong>gpus_per_slot</strong> -- number of GPUs to allocate per slot</p></li>
+<li><p><strong>num_nodes</strong> -- distribute allocated resource slots across N individual nodes</p></li>
+<li><p><strong>broker_opts</strong> (<em>iterable of str</em>) -- options to pass to the new Flux broker</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobspecV1.from_command">
+<em class="property">classmethod </em><code class="sig-name descname">from_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span></em>, <em class="sig-param"><span class="n">num_tasks</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">cores_per_task</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">gpus_per_task</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_nodes</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobspecV1.from_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory function that builds the minimum legal v1 jobspec.</p>
+<p>Use setters to assign additional properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> (<em>iterable of str</em>) -- command to execute</p></li>
+<li><p><strong>num_tasks</strong> -- number of MPI tasks to create</p></li>
+<li><p><strong>cores_per_task</strong> -- number of cores to allocate per task</p></li>
+<li><p><strong>gpus_per_task</strong> -- number of GPUs to allocate per task</p></li>
+<li><p><strong>num_nodes</strong> -- distribute allocated tasks across N individual nodes</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.job.JobspecV1.from_nest_command">
+<em class="property">classmethod </em><code class="sig-name descname">from_nest_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span></em>, <em class="sig-param"><span class="n">num_slots</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">cores_per_slot</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">gpus_per_slot</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_nodes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">broker_opts</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.JobspecV1.from_nest_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Jobspec describing a nested Flux instance controlled by <cite>command</cite>.</p>
+<p>Conceptually, this differs from the <cite>from_batch_command</cite> method in that a)
+the initial program of the nested Flux instance can be any executable
+on the file system, not just a text file and b) the executable is not
+copied at submission time.</p>
+<p>Use setters to assign additional properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> (<em>iterable of str</em>) -- initial program for the nested Flux instance</p></li>
+<li><p><strong>num_slots</strong> -- number of resource slots to create. Slots are an abstraction,
+and are only used (along with <cite>cores_per_slot</cite> and <cite>gpus_per_slot</cite>) to
+determine the nested instance's allocation size and layout.</p></li>
+<li><p><strong>cores_per_slot</strong> -- number of cores to allocate per slot</p></li>
+<li><p><strong>gpus_per_slot</strong> -- number of GPUs to allocate per slot</p></li>
+<li><p><strong>num_nodes</strong> -- distribute allocated resource slots across N individual nodes</p></li>
+<li><p><strong>broker_opts</strong> (<em>iterable of str</em>) -- options to pass to the new Flux broker</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.job.SubmitFuture">
+<em class="property">class </em><code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">SubmitFuture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">future_handle</span></em>, <em class="sig-param"><span class="n">prefixes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pimpl_t</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.SubmitFuture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.future.Future" title="flux.future.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.future.Future</span></code></a></p>
+<dl class="py method">
+<dt id="flux.job.SubmitFuture.get_id">
+<code class="sig-name descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.SubmitFuture.get_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.cancel">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">cancel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">signum</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a pending or or running job</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID of the job to cancel</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.cancel_async">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">cancel_async</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.cancel_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a pending or or running job asynchronously</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID of the job to cancel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a Future</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flux.future.Future" title="flux.future.Future">Future</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.event_wait">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">event_wait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">eventlog</span><span class="o">=</span><span class="default_value">'eventlog'</span></em>, <em class="sig-param"><span class="n">raiseJobException</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.event_wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for a job eventlog entry 'name'</p>
+<p>Wait synchronously for an eventlog entry named &quot;name&quot; and
+return the entry to caller, raises OSError with ENODATA if
+event never occurred</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID on which to wait for eventlog events</p></li>
+<li><p><strong>name</strong> -- The event name for which to wait</p></li>
+<li><p><strong>eventlog</strong> -- eventlog path in job kvs directory (default: eventlog)</p></li>
+<li><p><strong>raiseJobException</strong> -- if True, watch for job exception events and
+raise a JobException if one is seen before event 'name' (default=True)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an EventLogEntry object, or raises OSError if eventlog
+ended before matching event was found</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>EventLogEntry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.event_watch">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">event_watch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">eventlog</span><span class="o">=</span><span class="default_value">'eventlog'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.event_watch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python generator to watch all events for a job</p>
+<p>Synchronously watch events a job eventlog via a simple generator.
+Use as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">job</span><span class="o">.</span><span class="n">event_watch</span><span class="p">(</span><span class="n">flux_handle</span><span class="p">,</span> <span class="n">jobid</span><span class="p">):</span>
+    <span class="c1"># do something with event...</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID on which to watch events</p></li>
+<li><p><strong>name</strong> -- The event name or glob pattern for which to wait (default: *)</p></li>
+<li><p><strong>eventlog</strong> -- eventlog path in job kvs directory (default: eventlog)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.event_watch_async">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">event_watch_async</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">eventlog</span><span class="o">=</span><span class="default_value">'eventlog'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.event_watch_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronously get eventlog updates for a job</p>
+<p>Asynchronously watch the events of a job eventlog, optionally only
+returning events that match a glob pattern.</p>
+<p>Returns a JobEventWatchFuture. Call .get_event() from the then
+callback to get the currently returned event from the Future object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID on which to watch events</p></li>
+<li><p><strong>name</strong> -- The event name or glob pattern for which to wait (default: *)</p></li>
+<li><p><strong>eventlog</strong> -- eventlog path in job kvs directory (default: eventlog)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a JobEventWatchFuture object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flux.job.JobEventWatchFuture" title="flux.job.JobEventWatchFuture">JobEventWatchFuture</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.id_encode">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">id_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="o">=</span><span class="default_value">'f58'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.id_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: Jobid encoded in encoding
+:rtype str</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.id_parse">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">id_parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobid_str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.id_parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: An integer jobid
+:rtype int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.job_kvs">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">job_kvs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.job_kvs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The KVS directory of the given job</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#flux.kvs.KVSDir" title="flux.kvs.KVSDir">KVSDir</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.job_kvs_guest">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">job_kvs_guest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.job_kvs_guest" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The KVS guest directory of the given job</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#flux.kvs.KVSDir" title="flux.kvs.KVSDir">KVSDir</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.job_list">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">job_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">max_entries</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">userid</span><span class="o">=</span><span class="default_value">59746</span></em>, <em class="sig-param"><span class="n">states</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">results</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.job_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.job_list_id">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">job_list_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.job_list_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.job_list_inactive">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">job_list_inactive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">since</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">max_entries</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.job_list_inactive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.kill">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">kill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">signum</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a signal to a running job.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID of the job to kill</p></li>
+<li><p><strong>signum</strong> -- signal to send (default SIGTERM)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.kill_async">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">kill_async</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span></em>, <em class="sig-param"><span class="n">signum</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.kill_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a signal to a running job asynchronously</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID of the job to kill</p></li>
+<li><p><strong>signum</strong> -- signal to send (default SIGTERM)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a Future</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flux.future.Future" title="flux.future.Future">Future</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.submit">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">submit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobspec</span></em>, <em class="sig-param"><span class="n">priority</span><span class="o">=</span><span class="default_value">16</span></em>, <em class="sig-param"><span class="n">waitable</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pre_signed</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a job to Flux</p>
+<p>Ask Flux to run a job, blocking until a job ID is assigned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobspec</strong> (<a class="reference internal" href="#flux.job.Jobspec" title="flux.job.Jobspec"><em>Jobspec</em></a><em> or </em><em>its string encoding</em>) -- jobspec defining the job request</p></li>
+<li><p><strong>priority</strong> (<em>int</em>) -- job priority 0 (lowest) through 31 (highest)
+(default is 16).  Priorities 0 through 15 are restricted to
+the instance owner.</p></li>
+<li><p><strong>waitable</strong> (<em>bool</em>) -- allow result to be fetched with job.wait()
+(default is False).  Waitable=true is restricted to the
+instance owner.</p></li>
+<li><p><strong>debug</strong> (<em>bool</em>) -- enable job manager debugging events to job eventlog
+(default is False)</p></li>
+<li><p><strong>pre_signed</strong> (<em>bool</em>) -- jobspec argument is already signed
+(default is False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>job ID</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.submit_async">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">submit_async</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobspec</span></em>, <em class="sig-param"><span class="n">priority</span><span class="o">=</span><span class="default_value">16</span></em>, <em class="sig-param"><span class="n">waitable</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">pre_signed</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.submit_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ask Flux to run a job, without waiting for a response</p>
+<p>Submit a job to Flux.  This method returns immediately with a
+Flux Future, which can be used obtain the job ID later.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobspec</strong> (<a class="reference internal" href="#flux.job.Jobspec" title="flux.job.Jobspec"><em>Jobspec</em></a><em> or </em><em>its string encoding</em>) -- jobspec defining the job request</p></li>
+<li><p><strong>priority</strong> (<em>int</em>) -- job priority 0 (lowest) through 31 (highest)
+(default is 16).  Priorities 0 through 15 are restricted to
+the instance owner.</p></li>
+<li><p><strong>waitable</strong> (<em>bool</em>) -- allow result to be fetched with job.wait()
+(default is False).  Waitable=True is restricted to the
+instance owner.</p></li>
+<li><p><strong>debug</strong> (<em>bool</em>) -- enable job manager debugging events to job eventlog
+(default is False)</p></li>
+<li><p><strong>pre_signed</strong> (<em>bool</em>) -- jobspec argument is already signed
+(default is False)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a Flux Future object for obtaining the assigned jobid</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flux.future.Future" title="flux.future.Future">Future</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.validate_jobspec">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">validate_jobspec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jobspec</span></em>, <em class="sig-param"><span class="n">require_version</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.validate_jobspec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the jobspec by attempting to construct a Jobspec object.  If no
+exceptions are thrown during construction, then the jobspec is assumed to be
+valid and this function returns True.  If the jobspec is invalid, the
+relevant exception is thrown (i.e., TypeError, ValueError, EnvironmentError)</p>
+<p>By default, the validation function will read the <cite>version</cite> key in the
+jobspec to determine which Jobspec object to instantiate. An optional
+<cite>require_version</cite> is included to override this behavior and force a
+particular class to be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jobspec</strong> -- a Jobspec object or JSON string</p></li>
+<li><p><strong>require_version</strong> -- jobspec version to use, if not provided,
+the value of jobspec['version'] is used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> -- </p></li>
+<li><p><strong>TypeError</strong> -- </p></li>
+<li><p><strong>EnvironmentError</strong> -- </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.wait">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">wait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">18446744073709551615</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for a job to complete</p>
+<p>Submit a request to wait for job completion, blocking until a
+response is received, then return the job status.</p>
+<p>Only jobs submitted with waitable=True can be waited for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID to wait for (default is any waitable job)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>job status, a tuple of: Job ID (int), success (bool),
+and an error (string) if success=False</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.job.wait_async">
+<code class="sig-prename descclassname">flux.job.</code><code class="sig-name descname">wait_async</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">jobid</span><span class="o">=</span><span class="default_value">18446744073709551615</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.job.wait_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for a job to complete, asynchronously</p>
+<p>Submit a request to wait for job completion.  This method returns
+immediately with a Flux Future, which can be used to process
+the result later.</p>
+<p>Only jobs submitted with waitable=True can be waited for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_handle</strong> (<a class="reference internal" href="flux.core.html#flux.core.handle.Flux" title="flux.core.handle.Flux"><em>Flux</em></a>) -- handle for Flux broker from flux.Flux()</p></li>
+<li><p><strong>jobid</strong> -- the job ID to wait for (default is any waitable job)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a Flux Future object for obtaining the job result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flux.future.Future" title="flux.future.Future">Future</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flux.kvs">
+<span id="flux-kvs-module"></span><h2>flux.kvs module<a class="headerlink" href="#module-flux.kvs" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="flux.kvs.KVSDir">
+<em class="property">class </em><code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">KVSDir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">handle</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.WrapperPimpl" title="flux.wrapper.WrapperPimpl"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.WrapperPimpl</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.MutableMapping</span></code></p>
+<dl class="py class">
+<dt id="flux.kvs.KVSDir.InnerWrapper">
+<em class="property">class </em><code class="sig-name descname">InnerWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">handle</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.InnerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.Wrapper" title="flux.wrapper.Wrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.Wrapper</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.kvs.KVSDir.KVSDirIterator">
+<em class="property">class </em><code class="sig-name descname">KVSDirIterator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kvsdir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.KVSDirIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Iterator</span></code></p>
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.KVSDirIterator.next">
+<code class="sig-name descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.KVSDirIterator.next" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.commit">
+<code class="sig-name descname">commit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.directories">
+<code class="sig-name descname">directories</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.directories" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.exists">
+<code class="sig-name descname">exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.files">
+<code class="sig-name descname">files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.fill">
+<code class="sig-name descname">fill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate this directory with keys specified by contents, which must
+conform to the Mapping interface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>contents</strong> -- A dict of keys and values to be created in the
+directory or None, sub-directories can be created by using <code class="docutils literal notranslate"><span class="pre">dir.file</span></code>
+syntax, sub-dicts will be stored as json values in a single key</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.key_at">
+<code class="sig-name descname">key_at</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.key_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.list_all">
+<code class="sig-name descname">list_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.list_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.kvs.KVSDir.mkdir">
+<code class="sig-name descname">mkdir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">contents</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSDir.mkdir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new sub-directory, optionally pre-populated with the contents
+of <cite>files</cite> as would be done with <cite>fill(contents)</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> -- Key of the directory to be created</p></li>
+<li><p><strong>contents</strong> -- A dict of keys and values to be created in the
+directory or None, sub-directories can be created by using <cite>dir.file</cite>
+syntax, sub-dicts will be stored as json values in a single key</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.kvs.KVSWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">KVSWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ffi</span></em>, <em class="sig-param"><span class="n">lib</span></em>, <em class="sig-param"><span class="n">handle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">match</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filter_match</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">prefixes</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">destructor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.Wrapper" title="flux.wrapper.Wrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.Wrapper</span></code></a></p>
+<dl class="py method">
+<dt id="flux.kvs.KVSWrapper.flux_kvsitr_next">
+<code class="sig-name descname">flux_kvsitr_next</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.KVSWrapper.flux_kvsitr_next" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.commit">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">commit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.dropcache">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">dropcache</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.dropcache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.exists">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.get">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.get_dir">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">get_dir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span><span class="o">=</span><span class="default_value">'.'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.get_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.get_key_direct">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">get_key_direct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.get_key_direct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.inner_walk">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">inner_walk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kvsdir</span></em>, <em class="sig-param"><span class="n">curr_dir</span></em>, <em class="sig-param"><span class="n">topdown</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.inner_walk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.isdir">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">isdir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.isdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.join">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.put">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.put_mkdir">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">put_mkdir</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.put_mkdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.put_symlink">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">put_symlink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.put_symlink" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.put_unlink">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">put_unlink</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.put_unlink" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.kvs.walk">
+<code class="sig-prename descclassname">flux.kvs.</code><code class="sig-name descname">walk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">topdown</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">flux_handle</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.kvs.walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walk a directory in the style of os.walk()</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flux.memoized_property">
+<span id="flux-memoized-property-module"></span><h2>flux.memoized_property module<a class="headerlink" href="#module-flux.memoized_property" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="flux.memoized_property.memoized_property">
+<code class="sig-prename descclassname">flux.memoized_property.</code><code class="sig-name descname">memoized_property</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fget</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.memoized_property.memoized_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a property attribute for new-style classes that only calls its
+getter on the first access. The result is stored and on subsequent
+accesses is returned, preventing the need to call the getter any more.
+Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">load_name_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">... </span>    <span class="nd">@memoized_property</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="s2">&quot;name&#39;s docstring&quot;</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">load_name_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s2">&quot;the name&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">load_name_count</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&quot;the name&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">load_name_count</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&quot;the name&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">load_name_count</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flux.message">
+<span id="flux-message-module"></span><h2>flux.message module<a class="headerlink" href="#module-flux.message" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="flux.message.Message">
+<em class="property">class </em><code class="sig-prename descclassname">flux.message.</code><code class="sig-name descname">Message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type_id</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">handle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destruct</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.Message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.WrapperPimpl" title="flux.wrapper.WrapperPimpl"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.WrapperPimpl</span></code></a></p>
+<p>Flux message wrapper class.</p>
+<dl class="py class">
+<dt id="flux.message.Message.InnerWrapper">
+<em class="property">class </em><code class="sig-name descname">InnerWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type_id</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">handle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">destruct</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.Message.InnerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.Wrapper" title="flux.wrapper.Wrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.Wrapper</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.Message.from_event_encode">
+<em class="property">classmethod </em><code class="sig-name descname">from_event_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">topic</span></em>, <em class="sig-param"><span class="n">payload</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.Message.from_event_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.Message.payload">
+<em class="property">property </em><code class="sig-name descname">payload</code><a class="headerlink" href="#flux.message.Message.payload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.Message.payload_str">
+<em class="property">property </em><code class="sig-name descname">payload_str</code><a class="headerlink" href="#flux.message.Message.payload_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.Message.topic">
+<em class="property">property </em><code class="sig-name descname">topic</code><a class="headerlink" href="#flux.message.Message.topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.Message.type">
+<em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#flux.message.Message.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.Message.type_str">
+<em class="property">property </em><code class="sig-name descname">type_str</code><a class="headerlink" href="#flux.message.Message.type_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.message.MessageWatcher">
+<em class="property">class </em><code class="sig-prename descclassname">flux.message.</code><code class="sig-name descname">MessageWatcher</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">type_mask</span></em>, <em class="sig-param"><span class="n">callback</span></em>, <em class="sig-param"><span class="n">topic_glob</span><span class="o">=</span><span class="default_value">'*'</span></em>, <em class="sig-param"><span class="n">match_tag</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">args</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.MessageWatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">flux.core.watchers.Watcher</span></code></p>
+<dl class="py method">
+<dt id="flux.message.MessageWatcher.destroy">
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.MessageWatcher.destroy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.MessageWatcher.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.MessageWatcher.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.message.MessageWatcher.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.MessageWatcher.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.message.msg_typestr">
+<code class="sig-prename descclassname">flux.message.</code><code class="sig-name descname">msg_typestr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.message.msg_typestr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-flux.rpc">
+<span id="flux-rpc-module"></span><h2>flux.rpc module<a class="headerlink" href="#module-flux.rpc" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="flux.rpc.RPC">
+<em class="property">class </em><code class="sig-prename descclassname">flux.rpc.</code><code class="sig-name descname">RPC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flux_handle</span></em>, <em class="sig-param"><span class="n">topic</span></em>, <em class="sig-param"><span class="n">payload</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nodeid</span><span class="o">=</span><span class="default_value">4294967295</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.rpc.RPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.future.Future" title="flux.future.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.future.Future</span></code></a></p>
+<p>An RPC state object</p>
+<dl class="py class">
+<dt id="flux.rpc.RPC.RPCInnerWrapper">
+<em class="property">class </em><code class="sig-name descname">RPCInnerWrapper</code><span class="sig-paren">(</span><em class="sig-param">handle=None</em>, <em class="sig-param">match=&lt;ctype 'struct flux_future *'&gt;</em>, <em class="sig-param">filter_match=True</em>, <em class="sig-param">prefixes=None</em>, <em class="sig-param">destructor=&lt;bound method Wrapper.__getattr__.&lt;locals&gt;.wrap_class of &lt;flux.core.inner.Core object&gt;&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#flux.rpc.RPC.RPCInnerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.Wrapper" title="flux.wrapper.Wrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.Wrapper</span></code></a></p>
+<dl class="py method">
+<dt id="flux.rpc.RPC.RPCInnerWrapper.check_wrap">
+<code class="sig-name descname">check_wrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.rpc.RPC.RPCInnerWrapper.check_wrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.rpc.RPC.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.rpc.RPC.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base Future.get() method. Does not return a result, just blocks
+until future is fulfilled and throws OSError on failure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.rpc.RPC.get_str">
+<code class="sig-name descname">get_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flux.rpc.RPC.get_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-flux.security">
+<span id="flux-security-module"></span><h2>flux.security module<a class="headerlink" href="#module-flux.security" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="flux.security.SecurityContext">
+<em class="property">class </em><code class="sig-prename descclassname">flux.security.</code><code class="sig-name descname">SecurityContext</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_pattern</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.security.SecurityContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.WrapperPimpl" title="flux.wrapper.WrapperPimpl"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.WrapperPimpl</span></code></a></p>
+<p>A Flux Security Context object</p>
+<dl class="py class">
+<dt id="flux.security.SecurityContext.InnerWrapper">
+<em class="property">class </em><code class="sig-name descname">InnerWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.security.SecurityContext.InnerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.Wrapper" title="flux.wrapper.Wrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.Wrapper</span></code></a></p>
+<dl class="py method">
+<dt id="flux.security.SecurityContext.InnerWrapper.check_wrap">
+<code class="sig-name descname">check_wrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.security.SecurityContext.InnerWrapper.check_wrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="flux.security.SecurityContext.sign_unwrap">
+<code class="sig-name descname">sign_unwrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">signed_payload</span></em>, <em class="sig-param"><span class="n">flags</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.security.SecurityContext.sign_unwrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.security.SecurityContext.sign_wrap">
+<code class="sig-name descname">sign_wrap</code><span class="sig-paren">(</span><em class="sig-param">payload</em>, <em class="sig-param">mech_type=&lt;cdata 'void *' NULL&gt;</em>, <em class="sig-param">flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flux.security.SecurityContext.sign_wrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.security.SecurityContext.sign_wrap_as">
+<code class="sig-name descname">sign_wrap_as</code><span class="sig-paren">(</span><em class="sig-param">userid</em>, <em class="sig-param">payload</em>, <em class="sig-param">mech_type=&lt;cdata 'void *' NULL&gt;</em>, <em class="sig-param">flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flux.security.SecurityContext.sign_wrap_as" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.security.SecurityFunctionWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">flux.security.</code><code class="sig-name descname">SecurityFunctionWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">function_type</span></em>, <em class="sig-param"><span class="n">ffi</span></em>, <em class="sig-param"><span class="n">add_handle</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.security.SecurityFunctionWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.FunctionWrapper" title="flux.wrapper.FunctionWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.FunctionWrapper</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flux.util">
+<span id="flux-util-module"></span><h2>flux.util module<a class="headerlink" href="#module-flux.util" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="flux.util.CLIMain">
+<em class="property">class </em><code class="sig-prename descclassname">flux.util.</code><code class="sig-name descname">CLIMain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.util.CLIMain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flux.util.check_future_error">
+<code class="sig-prename descclassname">flux.util.</code><code class="sig-name descname">check_future_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.util.check_future_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.util.encode_payload">
+<code class="sig-prename descclassname">flux.util.</code><code class="sig-name descname">encode_payload</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payload</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.util.encode_payload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.util.encode_topic">
+<code class="sig-prename descclassname">flux.util.</code><code class="sig-name descname">encode_topic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">topic</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.util.encode_topic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flux.util.parse_fsd">
+<code class="sig-prename descclassname">flux.util.</code><code class="sig-name descname">parse_fsd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fsd_string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.util.parse_fsd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-flux.wrapper">
+<span id="flux-wrapper-module"></span><h2>flux.wrapper module<a class="headerlink" href="#module-flux.wrapper" title="Permalink to this headline">¶</a></h2>
+<p>Flux interface wrapper generator.
+This could, in principle, be used for other projects as well, but it encodes a
+number of assumptions about the error propagation and handling that flux uses.</p>
+<dl class="py class">
+<dt id="flux.wrapper.ErrorPrinter">
+<em class="property">class </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">ErrorPrinter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">prefixes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.ErrorPrinter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.wrapper.FunctionWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">FunctionWrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">function_type</span></em>, <em class="sig-param"><span class="n">ffi</span></em>, <em class="sig-param"><span class="n">add_handle</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.FunctionWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="flux.wrapper.FunctionWrapper.build_argument_translation_list">
+<code class="sig-name descname">build_argument_translation_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.FunctionWrapper.build_argument_translation_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.wrapper.FunctionWrapper.set_error_check">
+<code class="sig-name descname">set_error_check</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.FunctionWrapper.set_error_check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="flux.wrapper.InvalidArguments">
+<em class="property">exception </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">InvalidArguments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">signature</span></em>, <em class="sig-param"><span class="n">arguments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.InvalidArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="flux.wrapper.MissingFunctionError">
+<em class="property">exception </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">MissingFunctionError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">c_name</span></em>, <em class="sig-param"><span class="n">name_list</span></em>, <em class="sig-param"><span class="n">arguments</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.MissingFunctionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.wrapper.Wrapper">
+<em class="property">class </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">Wrapper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ffi</span></em>, <em class="sig-param"><span class="n">lib</span></em>, <em class="sig-param"><span class="n">handle</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">match</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filter_match</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">prefixes</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">destructor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.Wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.WrapperBase" title="flux.wrapper.WrapperBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.WrapperBase</span></code></a></p>
+<p>Forms a wrapper around an interface that dynamically searches for undefined
+names, and can detect and pass a handle argument of specified type when it
+is found in the signature of an un-specified target function.</p>
+<dl class="py method">
+<dt id="flux.wrapper.Wrapper.check_handle">
+<code class="sig-name descname">check_handle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">fun_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.Wrapper.check_handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.wrapper.Wrapper.check_wrap">
+<code class="sig-name descname">check_wrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.Wrapper.check_wrap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flux.wrapper.Wrapper.handle">
+<em class="property">property </em><code class="sig-name descname">handle</code><a class="headerlink" href="#flux.wrapper.Wrapper.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.wrapper.WrapperBase">
+<em class="property">class </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">WrapperBase</code><a class="headerlink" href="#flux.wrapper.WrapperBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="flux.wrapper.WrapperBase.handle">
+<em class="property">property </em><code class="sig-name descname">handle</code><a class="headerlink" href="#flux.wrapper.WrapperBase.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flux.wrapper.WrapperPimpl">
+<em class="property">class </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">WrapperPimpl</code><a class="headerlink" href="#flux.wrapper.WrapperPimpl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flux.wrapper.WrapperBase" title="flux.wrapper.WrapperBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">flux.wrapper.WrapperBase</span></code></a></p>
+<dl class="py method">
+<dt id="flux.wrapper.WrapperPimpl.handle">
+<em class="property">property </em><code class="sig-name descname">handle</code><a class="headerlink" href="#flux.wrapper.WrapperPimpl.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="flux.wrapper.WrongNumArguments">
+<em class="property">exception </em><code class="sig-prename descclassname">flux.wrapper.</code><code class="sig-name descname">WrongNumArguments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">signature</span></em>, <em class="sig-param"><span class="n">ftype</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">htype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.wrapper.WrongNumArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flux">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flux" title="Permalink to this headline">¶</a></h2>
+<p>python bindings to flux-core, the main core of the flux resource manager</p>
+<dl class="py function">
+<dt id="flux.Flux">
+<code class="sig-prename descclassname">flux.</code><code class="sig-name descname">Flux</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#flux.Flux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux.core.html" class="btn btn-neutral float-right" title="flux.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../man7/flux-broker-attributes.html" class="btn btn-neutral float-left" title="flux-broker-attributes(7)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

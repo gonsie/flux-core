@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-exec(1) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux-getattr(1)" href="flux-getattr.html" />
+    <link rel="prev" title="flux-event(1)" href="flux-event.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux-broker.html">flux-broker(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-content.html">flux-content(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-cron.html">flux-cron(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-dmesg.html">flux-dmesg(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-env.html">flux-env(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-event.html">flux-event(1)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-exec(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exit-status">EXIT STATUS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">OPTIONS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nodeset-format">NODESET FORMAT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resources">RESOURCES</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux-getattr.html">flux-getattr(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-hwloc.html">flux-hwloc(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-jobs.html">flux-jobs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-keygen.html">flux-keygen(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-kvs.html">flux-kvs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-logger.html">flux-logger(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-mini.html">flux-mini(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-module.html">flux-module(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-ping.html">flux-ping(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-proxy.html">flux-proxy(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-start.html">flux-start(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-version.html">flux-version(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.html">flux(1)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man1</a> &raquo;</li>
+        
+      <li>flux-exec(1)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man1/flux-exec.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-exec-1">
+<h1>flux-exec(1)<a class="headerlink" href="#flux-exec-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux</strong> <strong>exec</strong> [--noinput] [<em>--label-io] [</em>—dir=DIR'] [<em>--rank=NODESET</em>] [<em>--verbose</em>] COMMANDS...</p>
+<div class="section" id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>flux-exec(1) runs commands across one or more flux-broker ranks using
+the <em>cmb.exec</em> service. The commands are executed as direct children
+of the broker, and the broker handles buffering stdout and stderr and
+sends the output back to flux-exec(1) which copies output to its own
+stdout and stderr.</p>
+<p>On receipt of SIGINT and SIGTERM signals, flux-exec(1) shall forward
+the received signal to all currently running remote processes.</p>
+<p>In the event subprocesses are hanging or ignoring SIGINT, two SIGINT
+signals (typically sent via Ctrl+C) in short succession can force
+flux-exec(1) to exit.</p>
+<p>flux-exec(1) is meant as an administrative and test utility, and cannot
+be used to launch Flux jobs.</p>
+</div>
+<div class="section" id="exit-status">
+<h3>EXIT STATUS<a class="headerlink" href="#exit-status" title="Permalink to this headline">¶</a></h3>
+<p>In the case that all processes are successfully launched, the exit status
+of flux-exec(1) is the largest of the remote process exit codes.</p>
+<p>If a non-existent rank is targeted, flux-exec(1) will return with
+code 68 (EX_NOHOST from sysexits.h).</p>
+<p>If one or more remote commands are terminated by a signal, then flux-exec(1)
+exits with exit code 128+signo.</p>
+</div>
+<div class="section" id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><strong>-l, --label-io</strong></dt><dd><p>Label lines of output with the source RANK.</p>
+</dd>
+<dt><strong>-n, --noinput</strong></dt><dd><p>Do not attempt to forward stdin. Send EOF to remote process stdin.</p>
+</dd>
+<dt><strong>-d, --dir</strong><em>=DIR</em></dt><dd><p>Set the working directory of remote <em>COMMANDS</em> to <em>DIR</em>. The default is to
+propagate the current working directory of flux-exec(1).</p>
+</dd>
+<dt><strong>-r, --rank</strong><em>=NODESET</em></dt><dd><p>Target specific ranks in <em>NODESET</em>. Default is to target &quot;all&quot; ranks.
+See NODESET FORMAT below for more information.</p>
+</dd>
+<dt><strong>-v, --verbose</strong></dt><dd><p>Run with more verbosity.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="nodeset-format">
+<h3>NODESET FORMAT<a class="headerlink" href="#nodeset-format" title="Permalink to this headline">¶</a></h3>
+<p>A NODESET is a comma separated list of integer ranks. Ranks may be
+listed individually or as a range in the form <em>l-k</em> where l &lt; k.</p>
+<p>Some examples of nodesets.</p>
+<dl class="simple">
+<dt>``1''</dt><dd><p>rank 1</p>
+</dd>
+<dt>``0-3''</dt><dd><p>ranks 0, 1, 2, and 3 listed in a range</p>
+</dd>
+<dt>``0,1,2,3''</dt><dd><p>ranks 0, 1, 2, and 3 listed individually</p>
+</dd>
+<dt>``2,5''</dt><dd><p>ranks 2 and 5</p>
+</dd>
+<dt>``2,4-5''</dt><dd><p>ranks 2, 4, and 5</p>
+</dd>
+</dl>
+<p>As a special case, the string ``<em>all</em>'' can be specified to indicate every
+rank available in the flux instance.</p>
+</div>
+<div class="section" id="resources">
+<h3>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux-getattr.html" class="btn btn-neutral float-right" title="flux-getattr(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux-event.html" class="btn btn-neutral float-left" title="flux-event(1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-broker-attributes(7) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux package" href="../bindings/python/flux.html" />
+    <link rel="prev" title="man7" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../man1/index.html">man1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man7</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-broker-attributes(7)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#session-attributes">SESSION ATTRIBUTES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topology-attributes">TOPOLOGY ATTRIBUTES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#socket-attributes">SOCKET ATTRIBUTES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logging-attributes">LOGGING ATTRIBUTES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#content-attributes">CONTENT ATTRIBUTES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wireup-attributes">WIREUP ATTRIBUTES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man7</a> &raquo;</li>
+        
+      <li>flux-broker-attributes(7)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man7/flux-broker-attributes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-broker-attributes-7">
+<h1>flux-broker-attributes(7)<a class="headerlink" href="#flux-broker-attributes-7" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Flux broker attributes are parameters that affect how different
+broker systems behave. Attributes can be listed and manipulated
+with flux-getattr(1), flux-setattr(1), and flux-lsattr(1).</p>
+<p>The broker currently exports the following attributes:</p>
+</div>
+<div class="section" id="session-attributes">
+<h2>SESSION ATTRIBUTES<a class="headerlink" href="#session-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>rank</dt><dd><p>The rank of the local broker.</p>
+</dd>
+<dt>size</dt><dd><p>The number of ranks in the comms session.</p>
+</dd>
+<dt>rundir</dt><dd><p>A global, shared temporary directory available for scratch storage
+within the session. By default, a temporary directory is created
+for each broker rank, but if rundir is set on the command line, this
+directory may be shared by all broker ranks (typically only within
+a node). If rundir does not exist, it is created and subsequently
+removed during session exit. An existing rundir is not removed at exit.</p>
+</dd>
+<dt>broker.rundir</dt><dd><p>A temporary directory available for per-rank scratch storage within
+the session. By default broker.rundir is set to &quot;${rundir}/${rank}&quot;,
+which guarantees a unique directory per rank. It is not advisable
+to override this attribute on the command line. Use rundir instead.</p>
+</dd>
+<dt>content.backing-path</dt><dd><p>The path to the content backing store file(s). If this is set on the
+broker command line, the backing store uses this path instead of
+a temporary one, and content is preserved on instance exit.
+If file exists, its content is imported into the instance.
+If it doesn't exist, it is created.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="topology-attributes">
+<h2>TOPOLOGY ATTRIBUTES<a class="headerlink" href="#topology-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>tbon.arity</dt><dd><p>Branching factor of the tree based overlay network.</p>
+</dd>
+<dt>tbon.descendants</dt><dd><p>Number of descendants &quot;below&quot; this node of the tree based
+overlay network, not including this node.</p>
+</dd>
+<dt>tbon.level</dt><dd><p>The level of this node in the tree based overlay network.
+Root is level 0.</p>
+</dd>
+<dt>tbon.maxlevel</dt><dd><p>The maximum level number in the tree based overlay network.
+Maxlevel is 0 for a size=1 instance.</p>
+</dd>
+<dt>tbon.endpoint</dt><dd><p>The endpoint for the tree based overlay network to communicate over.
+Format specifier &quot;%h&quot; can be used to specify the IP address of the
+host and is useful when configuring an IP endpoint. Format specifier
+&quot;%B&quot; can be used to specify the value of the attribute broker.rundir.
+It is useful when configuring an IPC endpoint. Defaults to
+&quot;<a class="reference external" href="tcp://%h:*">tcp://%h:*</a>&quot;.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="socket-attributes">
+<h2>SOCKET ATTRIBUTES<a class="headerlink" href="#socket-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>tbon.parent-endpoint</dt><dd><p>The URI of the ZeroMQ endpoint this rank is connected to in the tree
+based overlay network. This attribute will not be set on rank zero.</p>
+</dd>
+<dt>local-uri</dt><dd><p>The Flux URI that should be passed to flux_open(1) to establish
+a connection to the local broker rank. By default, local-uri is
+created as &quot;local://&lt;broker.rank&gt;/local&quot;.</p>
+</dd>
+<dt>parent-uri</dt><dd><p>The Flux URI that should be passed to flux_open(1) to establish
+a connection to the enclosing instance.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="logging-attributes">
+<h2>LOGGING ATTRIBUTES<a class="headerlink" href="#logging-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>log-ring-used</dt><dd><p>The number of log entries currently stored in the ring buffer.</p>
+</dd>
+<dt>log-ring-size</dt><dd><p>The maximum number of log entries that can be stored in the ring buffer.</p>
+</dd>
+<dt>log-count</dt><dd><p>The number of log entries ever stored in the ring buffer.</p>
+</dd>
+<dt>log-forward-level</dt><dd><p>Log entries at syslog(3) level at or below this value are forwarded
+to rank zero for permanent capture.</p>
+</dd>
+<dt>log-critical-level</dt><dd><p>Log entries at syslog(3) level at or below this value are copied
+to stderr on the logging rank, for capture by the enclosing instance.</p>
+</dd>
+<dt>log-filename</dt><dd><p>(rank zero only) If set, session log entries, as filtered by log-forward-level,
+are directed to this file.</p>
+</dd>
+<dt>log-stderr-level</dt><dd><p>(rank zero only) Session log entries at syslog(3) level at or below this
+value, and as filtered by log-forward-level, are copied to stderr of the
+rank zero broker.</p>
+</dd>
+<dt>log-level</dt><dd><p>Log entries at syslog(3) level at or below this value are stored
+in the ring buffer.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="content-attributes">
+<h2>CONTENT ATTRIBUTES<a class="headerlink" href="#content-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>content.acct-dirty</dt><dd><p>The number of dirty cache entries on this rank.</p>
+</dd>
+<dt>content.acct-entries</dt><dd><p>The total number of cache entries on this rank.</p>
+</dd>
+<dt>content.acct-size</dt><dd><p>The estimated total size in bytes consumed by cache entries on
+this rank, excluding overhead.</p>
+</dd>
+<dt>content.acct-valid</dt><dd><p>The number of valid cache entries on this rank.</p>
+</dd>
+<dt>content.backing-module</dt><dd><p>The selected backing store module, if any. This attribute is only
+set on rank 0 where the content backing store is active.</p>
+</dd>
+<dt>content.blob-size-limit</dt><dd><p>The maximum size of a blob, the basic unit of content storage.</p>
+</dd>
+<dt>content.flush-batch-count</dt><dd><p>The current number of outstanding store requests, either to the
+backing store (rank 0) or upstream (rank &gt; 0).</p>
+</dd>
+<dt>content.flush-batch-limit</dt><dd><p>The maximum number of outstanding store requests that will be
+initiated when handling a flush or backing store load operation.</p>
+</dd>
+<dt>content.hash</dt><dd><p>The selected hash algorithm, default sha1.</p>
+</dd>
+<dt>content.purge-large-entry</dt><dd><p>When the cache size footprint needs to be reduced, first consider
+purging entries of this size or greater.</p>
+</dd>
+<dt>content.purge-old-entry</dt><dd><p>When the cache size footprint needs to be reduced, only consider
+purging entries that are older than this number of heartbeats.</p>
+</dd>
+<dt>content.purge-target-entries</dt><dd><p>If possible, the cache size purged periodically so that the total
+number of entries stays at or below this value.</p>
+</dd>
+<dt>content.purge-target-size</dt><dd><p>If possible, the cache size purged periodically so that the total
+size of the cache stays at or below this value.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="wireup-attributes">
+<h2>WIREUP ATTRIBUTES<a class="headerlink" href="#wireup-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>hello.timeout</dt><dd><p>The reduction timeout (in seconds) for the broker wireup protocol.
+Before the timeout, a topology-based high water mark is applied
+at each node of the tree based overlay network. After the timeout,
+new wireup information is forwarded upstream without delay.
+Set to 0 to disable the timeout.</p>
+</dd>
+<dt>hello.hwm</dt><dd><p>The reduction high water mark for the broker wireup protocol,
+normally calculated based on the topology.
+Set to 0 to disable the high water mark.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>flux-getattr(1), flux_attr_get(3)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bindings/python/flux.html" class="btn btn-neutral float-right" title="flux package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="man7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

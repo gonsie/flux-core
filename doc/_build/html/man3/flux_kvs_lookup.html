@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux_kvs_lookup(3) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux_kvs_namespace_create(3)" href="flux_kvs_namespace_create.html" />
+    <link rel="prev" title="flux_kvs_getroot(3)" href="flux_kvs_getroot.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../man1/index.html">man1</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux_attr_get.html">flux_attr_get(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_aux_set.html">flux_aux_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_child_watcher_create.html">flux_child_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_content_load.html">flux_content_load(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_core_version.html">flux_core_version(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_event_decode.html">flux_event_decode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_event_publish.html">flux_event_publish(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_event_subscribe.html">flux_event_subscribe(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_fatal_set.html">flux_fatal_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_fd_watcher_create.html">flux_fd_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_flags_set.html">flux_flags_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_future_and_then.html">flux_future_and_then(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_future_create.html">flux_future_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_future_get.html">flux_future_get(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_future_wait_all_create.html">flux_future_wait_all_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_get_rank.html">flux_get_rank(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_get_reactor.html">flux_get_reactor(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_handle_watcher_create.html">flux_handle_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_idle_watcher_create.html">flux_idle_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_commit.html">flux_kvs_commit(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_copy.html">flux_kvs_copy(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_getroot.html">flux_kvs_getroot(3)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux_kvs_lookup(3)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flags">FLAGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#errors">ERRORS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_namespace_create.html">flux_kvs_namespace_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_kvs_txn_create.html">flux_kvs_txn_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_log.html">flux_log(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_cmp.html">flux_msg_cmp(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_encode.html">flux_msg_encode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_handler_addvec.html">flux_msg_handler_addvec(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_msg_handler_create.html">flux_msg_handler_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_open.html">flux_open(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_periodic_watcher_create.html">flux_periodic_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_pollevents.html">flux_pollevents(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_reactor_create.html">flux_reactor_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_reactor_now.html">flux_watcher_now(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_recv.html">flux_recv(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_request_decode.html">flux_request_decode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_request_encode.html">flux_request_encode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_requeue.html">flux_requeue(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_respond.html">flux_respond(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_response_decode.html">flux_response_decode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_rpc.html">flux_rpc(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_send.html">flux_send(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_add_completion_ref.html">flux_shell_add_completion_ref(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_add_event_context.html">flux_shell_add_event_context(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_add_event_handler.html">flux_shell_add_event_handler(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_aux_set.html">flux_shell_aux_set(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_current_task.html">flux_shell_current_task(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_get_flux.html">flux_shell_get_flux(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_get_info.html">flux_shell_get_info(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_getenv.html">flux_shell_getenv(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_getopt.html">flux_shell_getopt(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_killall.html">flux_shell_killall(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_log.html">flux_shell_log(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_plugstack_call.html">flux_shell_plugstack_call(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_rpc_pack.html">flux_shell_rpc_pack(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_service_register.html">flux_shell_service_register(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_task_channel_subscribe.html">flux_shell_task_channel_subscribe(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_task_get_info.html">flux_shell_task_get_info(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_shell_task_subprocess.html">flux_shell_task_subprocess(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_signal_watcher_create.html">flux_signal_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_stat_watcher_create.html">flux_stat_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_timer_watcher_create.html">flux_timer_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_watcher_start.html">flux_watcher_start(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_zmq_watcher_create.html">flux_zmq_watcher_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idset_create.html">idset_create(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idset_encode.html">idset_encode(3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON_PACK.html">ENCODING JSON PAYLOADS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON_UNPACK.html">DECODING JSON PAYLOADS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man3</a> &raquo;</li>
+        
+      <li>flux_kvs_lookup(3)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man3/flux_kvs_lookup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-kvs-lookup-3">
+<h1>flux_kvs_lookup(3)<a class="headerlink" href="#flux-kvs-lookup-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;flux/core.h&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">flux_kvs_lookup</span> <span class="p">(</span><span class="n">flux_t</span> <span class="o">*</span><span class="n">h</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">ns</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span><span class="p">,</span>
+                                <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">key</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">flux_kvs_lookupat</span> <span class="p">(</span><span class="n">flux_t</span> <span class="o">*</span><span class="n">h</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span><span class="p">,</span>
+                                  <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">treeobj</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_kvs_lookup_get</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">**</span><span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_kvs_lookup_get_unpack</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="o">...</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_kvs_lookup_get_raw</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span>
+                             <span class="n">const</span> <span class="n">void</span> <span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="nb">int</span> <span class="o">*</span><span class="nb">len</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_kvs_lookup_get_dir</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span>
+                             <span class="n">const</span> <span class="n">flux_kvsdir_t</span> <span class="o">**</span><span class="nb">dir</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_kvs_lookup_get_treeobj</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">**</span><span class="n">treeobj</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_kvs_lookup_get_symlink</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">**</span><span class="n">ns</span><span class="p">,</span>
+                                 <span class="n">const</span> <span class="n">char</span> <span class="o">**</span><span class="n">target</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">flux_kvs_lookup_get_key</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">flux_kvs_lookup_cancel</span> <span class="p">(</span><span class="n">flux_future_t</span> <span class="o">*</span><span class="n">f</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The Flux Key Value Store is a general purpose distributed storage
+service used by Flux services.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup()</span></code> sends a request to the KVS service to look up
+<em>key</em> in namespace <em>ns</em>. It returns a <code class="docutils literal notranslate"><span class="pre">flux_future_t</span></code> object which
+acts as handle for synchronization and container for the result. The
+namespace <em>ns</em> is optional. If set to NULL, <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup()</span></code> uses
+the default namespace, or if set, the namespace from the
+FLUX_KVS_NAMESPACE environment variable. <em>flags</em> modifies the request
+as described below.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookupat()</span></code> is identical to <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup()</span></code> except
+<em>treeobj</em> is a serialized RFC 11 object that references a particular
+static set of content within the KVS, effectively a snapshot.
+See <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_treeobj()</span></code> below.</p>
+<p>All the functions below are variations on a common theme. First they
+complete the lookup RPC by blocking on the response, if not already received.
+Then they interpret the result in different ways. They may be called more
+than once on the same future, and they may be intermixed to probe a result
+or interpret it in different ways. Results remain valid until
+<code class="docutils literal notranslate"><span class="pre">flux_future_destroy()</span></code> is called.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get()</span></code> interprets the result as a value. If the value
+has length greater than zero, a NULL is appended and it is assigned
+to <em>value</em>, otherwise NULL is assigned to <em>value</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_unpack()</span></code> interprets the result as a value, which
+it decodes as JSON according to variable arguments in Jansson
+<code class="docutils literal notranslate"><span class="pre">json_unpack()</span></code> format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_raw()</span></code> interprets the result as a value. If the value
+has length greater than zero, the value and its length are assigned to
+<em>buf</em> and <em>len</em>, respectively. Otherwise NULL and zero are assigned.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_dir()</span></code> interprets the result as a directory,
+e.g. in response to a lookup with the FLUX_KVS_READDIR flag set.
+The directory object is assigned to <em>dir</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_treeobj()</span></code> interprets the result as any RFC 11 object.
+The object in JSON-encoded form is assigned to <em>treeobj</em>. Since all
+lookup requests return an RFC 11 object of one type or another, this
+function should work on all.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_symlink()</span></code> interprets the result as a symlink target,
+e.g. in response to a lookup with the FLUX_KVS_READLINK flag set.
+The result is parsed and symlink namespace is assigned to <em>ns</em> and
+the symlink target is assigned to <em>target</em>. If a namespace was not assigned
+to the symlink, <em>ns</em> is set to NULL.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_key()</span></code> accesses the key argument from the original
+lookup.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_cancel()</span></code> cancels a stream of lookup responses
+requested with FLUX_KVS_WATCH or a waiting lookup response with
+FLUX_KVS_WAITCREATE. See FLAGS below for additional information.</p>
+<p>These functions may be used asynchronously. See <code class="docutils literal notranslate"><span class="pre">flux_future_then(3)</span></code> for
+details.</p>
+</div>
+<div class="section" id="flags">
+<h2>FLAGS<a class="headerlink" href="#flags" title="Permalink to this headline">¶</a></h2>
+<p>The following are valid bits in a <em>flags</em> mask passed as an argument
+to <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup()</span></code> or <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookupat()</span></code>.</p>
+<dl class="simple">
+<dt>FLUX_KVS_READDIR</dt><dd><p>Look up a directory, not a value. The lookup fails if the key does
+not refer to a directory object.</p>
+</dd>
+<dt>FLUX_KVS_READLINK</dt><dd><p>If key is a symlink, read the link value. The lookup fails if the key
+does not refer to a symlink object.</p>
+</dd>
+<dt>FLUX_KVS_TREEOBJ</dt><dd><p>All KVS lookups return an RFC 11 tree object. This flag requests that
+they be returned without conversion. That is, a &quot;valref&quot; will not
+be converted to a &quot;val&quot; object, and a &quot;dirref&quot; will not be converted
+to a &quot;dir&quot; object. This is useful for obtaining a snapshot reference
+that can be passed to <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookupat()</span></code>.</p>
+</dd>
+<dt>FLUX_KVS_WATCH</dt><dd><p>After the initial response, continue to send responses to the lookup
+request each time <em>key</em> is mentioned verbatim in a committed transaction.
+After receiving a response, <code class="docutils literal notranslate"><span class="pre">flux_future_reset()</span></code> should be used to
+consume a response and prepare for the next one. Responses continue
+until the namespace is removed, the key is removed, the lookup is
+canceled with <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_cancel()</span></code>, or an error occurs. After
+calling <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_cancel()</span></code>, callers should wait for the future
+to be fulfilled with an ENODATA error to ensure the cancel request has
+been received and processed.</p>
+</dd>
+<dt>FLUX_KVS_WATCH_UNIQ</dt><dd><p>Specified along with FLUX_KVS_WATCH, this flag will alter watch
+behavior to only respond when <em>key</em> is mentioned verbatim in a
+committed transaction and the value of the key has changed.</p>
+</dd>
+<dt>FLUX_KVS_WATCH_APPEND</dt><dd><p>Specified along with FLUX_KVS_WATCH, this flag will alter watch
+behavior to only respond when <em>key</em> is mentioned verbatim in a
+committed transaction and the key has been appended to. The response
+will only contain the additional appended data. Note that only data
+length is considered for appends and no guarantee is made that prior
+data hasn't been overwritten.</p>
+</dd>
+<dt>FLUX_KVS_WATCH_FULL</dt><dd><p>Specified along with FLUX_KVS_WATCH, this flag will alter watch
+behavior to respond when the value of the key being watched has
+changed. Unlike FLUX_KVS_WATCH_UNIQ, the key being watched need not
+be mentioned in a transaction. This may occur under several
+scenarios, such as a parent directory being altered.</p>
+</dd>
+<dt>FLUX_KVS_WAITCREATE</dt><dd><p>If a KVS key does not exist, wait for it to exist before returning.
+This flag can be specified with or without FLUX_KVS_WATCH. The lookup
+can be canceled with <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_cancel()</span></code>. After calling
+<code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_cancel()</span></code>, callers should wait for the future to be
+fulfilled with an ENODATA error to ensure the cancel request has been
+received and processed.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup()</span></code> and <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookupat()</span></code> return a
+<code class="docutils literal notranslate"><span class="pre">flux_future_t</span></code> on success, or NULL on failure with errno set appropriately.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get()</span></code>, <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_unpack()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_raw()</span></code>, <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_dir()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_treeobj()</span></code>, <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_symlink()</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_cancel()</span></code> return 0 on success, or -1 on failure with
+errno set appropriately.</p>
+<p><code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_get_key()</span></code> returns key on success, or NULL with errno
+set to EINVAL if its future argument did not come from a KVS lookup.</p>
+</div>
+<div class="section" id="errors">
+<h2>ERRORS<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>EINVAL</dt><dd><p>One of the arguments was invalid, or FLUX_KVS_READLINK was used but
+the key does not refer to a symlink.</p>
+</dd>
+<dt>ENOMEM</dt><dd><p>Out of memory.</p>
+</dd>
+<dt>ENOENT</dt><dd><p>An unknown key was requested.</p>
+</dd>
+<dt>ENOTDIR</dt><dd><p>FLUX_KVS_READDIR flag was set and key does NOT point to a directory.</p>
+</dd>
+<dt>EISDIR</dt><dd><p>FLUX_KVS_READDIR flag was NOT set and key points to a directory.</p>
+</dd>
+<dt>EPROTO</dt><dd><p>A request or response was malformed.</p>
+</dd>
+<dt>EFBIG; ENOSYS</dt><dd><p>The KVS module is not loaded.</p>
+</dd>
+<dt>ENOTSUP</dt><dd><p>An unknown namespace was requested or namespace was deleted.</p>
+</dd>
+<dt>ENODATA</dt><dd><p>A stream of responses requested with FLUX_KVS_WATCH was terminated
+with <code class="docutils literal notranslate"><span class="pre">flux_kvs_lookup_cancel()</span></code>.</p>
+</dd>
+<dt>EPERM</dt><dd><p>The user does not have instance owner capability, and a lookup was attempted
+against a KVS namespace owned by another user.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>flux_rpc(3), flux_future_then(3), flux_kvs_set_namespace(3)</p>
+<p><a class="reference external" href="https://github.com/flux-framework/rfc/blob/master/spec_11.rst">RFC 11: Key Value Store Tree Object Format v1</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux_kvs_namespace_create.html" class="btn btn-neutral float-right" title="flux_kvs_namespace_create(3)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux_kvs_getroot.html" class="btn btn-neutral float-left" title="flux_kvs_getroot(3)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

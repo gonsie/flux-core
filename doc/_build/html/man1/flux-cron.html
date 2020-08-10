@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-cron(1) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux-dmesg(1)" href="flux-dmesg.html" />
+    <link rel="prev" title="flux-content(1)" href="flux-content.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux-broker.html">flux-broker(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-content.html">flux-content(1)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-cron(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands">COMMANDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-options">EXTRA OPTIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operation">OPERATION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-execution">TASK EXECUTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux-dmesg.html">flux-dmesg(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-env.html">flux-env(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-event.html">flux-event(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-exec.html">flux-exec(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-getattr.html">flux-getattr(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-hwloc.html">flux-hwloc(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-jobs.html">flux-jobs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-keygen.html">flux-keygen(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-kvs.html">flux-kvs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-logger.html">flux-logger(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-mini.html">flux-mini(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-module.html">flux-module(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-ping.html">flux-ping(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-proxy.html">flux-proxy(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-start.html">flux-start(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-version.html">flux-version(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.html">flux(1)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man1</a> &raquo;</li>
+        
+      <li>flux-cron(1)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man1/flux-cron.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-cron-1">
+<h1>flux-cron(1)<a class="headerlink" href="#flux-cron-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux</strong> <strong>cron</strong> <em>COMMAND</em> [<em>OPTIONS</em>]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The Flux cron service offers an interface for executing commands on
+triggers such as a time interval or Flux events. The service is
+implemented as a Flux extension module which, when loaded, manages
+a set of cron entries and uses the built-in <em>cmb.exec</em> service to run
+a command associated with the entry each time the defined trigger is
+reached. As with <em>flux-exec(1)</em>, these tasks run as direct children
+of the flux-broker and run outside of the control of any loaded
+job scheduling service.</p>
+<p>The flux-cron(1) utility offers an interface to create, stop, start,
+query, and destroy these entries in the Flux cron service.</p>
+<p>For a detailed description of the cron service operation and how
+it executes tasks, see the OPERATION and TASK EXECUTION sections
+below.</p>
+</div>
+<div class="section" id="commands">
+<h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt><strong>help</strong> <em>cmd</em></dt><dd><p>Print help. If <em>cmd</em> is provided, print help for that sub-command.</p>
+</dd>
+<dt><strong>sync</strong> [--epsilon=<em>delay</em>] [<em>topic</em>]</dt><dd><p>Query and modify the current <strong>sync-event</strong> behavior for the cron module.
+If a sync-event is set, the cron module will defer all task execution
+until an event matching the sync-event <em>topic</em> is received. With <em>--epsilon</em>
+the cron module will <strong>not</strong> delay task execution if the task is normally
+scheduled to run within <em>delay</em> of the matching event. Without any
+<em>topic</em> supplied on command line, <em>flux cron sync</em> displays the current
+setting for sync. If a task is deferred due to sync-event, the
+<em>stats.deferred</em> statistic is incremented.</p>
+</dd>
+<dt><strong>interval</strong> [OPTIONS] <em>interval</em> <em>command</em></dt><dd><p>Create a cron entry to execute <em>command</em> every <em>interval</em>, where <em>interval</em>
+is an arbitrary floating point duration with optional suffix <em>s</em> for
+seconds, <em>m</em> for minutes, <em>h</em> for hours and <em>d</em> for days.
+Options:</p>
+<dl class="simple">
+<dt>--name=<em>STRING</em>; -n <em>STRING</em></dt><dd><p>Set a name for this cron entry to <em>STRING</em>.</p>
+</dd>
+<dt>--after=<em>TIME</em>; -a <em>TIME</em></dt><dd><p>The first task will run after a delay of <em>TIME</em> instead of <em>interval</em>.
+After the first task the entry will continue to execute every <em>interval</em>.</p>
+</dd>
+<dt>--count=<em>N</em>; -c <em>N</em></dt><dd><p>The entry will be run a total of <em>N</em> times, then stopped.</p>
+</dd>
+<dt>--options=<em>LIST</em>; -o <em>LIST</em></dt><dd><p>The <em>--options</em> option allows a comma separated list of extra options to be
+passed to the flux-cron service. See EXTRA OPTIONS below.</p>
+</dd>
+<dt>--preserve-env; -E</dt><dd><p>The <em>--preserve-env</em> option allows the current environment to be exported
+and used for the command being executed as part of the cron job. Normally,
+the broker environment is used.</p>
+</dd>
+<dt>--working-dir=<em>DIR</em>; -d <em>DIR</em></dt><dd><p>The <em>--working-dir</em> option allows the working directory to be set for the command
+being executed as part of the cron job. Normally, the working directory of
+the broker is used.</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>event</strong> [OPTIONS] <em>topic</em> <em>command</em></dt><dd><p>Create a cron entry to execute <em>command</em> after every event matching <em>topic</em>.</p>
+<dl class="simple">
+<dt>--name=<em>STRING</em>; -n <em>STRING</em></dt><dd><p>Set a name for this cron entry to <em>STRING</em>.</p>
+</dd>
+<dt>--nth=<em>N</em>; -n <em>N</em></dt><dd><p>If <em>--nth</em> is given then <em>command</em> will be run after each <em>N</em> events.</p>
+</dd>
+<dt>--count=<em>N</em>; -c <em>N</em></dt><dd><p>With <em>--count</em>, the entry is run <em>N</em> times then stopped.</p>
+</dd>
+<dt>--after=<em>N</em>; -a <em>N</em></dt><dd><p>Run the first task only after <em>N</em> matching events. Then run every event
+or <em>N</em> events with <em>--nth</em>.</p>
+</dd>
+<dt>--min-interval=<em>T</em>; -i <em>T</em></dt><dd><p>Set the minimum interval at which two cron jobs for this event will be run.
+For example, with --min-interval of 1s, the cron job will be at most run
+every 1s, even if events are generated more quickly.</p>
+</dd>
+<dt>--options=<em>LIST</em>; -o <em>LIST</em></dt><dd><p>Set comma separated EXTRA OPTIONS for this cron entry.</p>
+</dd>
+<dt>--preserve-env; -E</dt><dd><p>The <em>--preserve-env</em> option allows the current environment to be exported
+and used for the command being executed as part of the cron job. Normally,
+the broker environment is used.</p>
+</dd>
+<dt>--working-dir=<em>DIR</em>; -d <em>DIR</em></dt><dd><p>The <em>--working-dir</em> option allows the working directory to be set for the command
+being executed as part of the cron job. Normally, the working directory of
+the broker is used.</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>tab</strong> [OPTIONS] [<em>file</em>]</dt><dd><p>Process one or more lines containing crontab expressions from <em>file</em>
+(stdin by default) Each valid crontab line will result in a new cron
+entry registered with the flux-cron service. The cron expression format
+supported by <code class="docutils literal notranslate"><span class="pre">flux</span> <span class="pre">cron</span> <span class="pre">tab</span></code> has 5 fields: <em>minutes</em> (0-59), <em>hours</em>
+(0-23), <em>day of month</em> (1-31), <em>month</em> (0-11), and <em>day of week</em> (0-6).
+Everything after the day of week is considered a command to be run.</p>
+<dl class="simple">
+<dt>--options=<em>LIST</em>; -o <em>LIST</em></dt><dd><p>Set comma separated EXTRA OPTIONS for all cron entries.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><strong>at</strong> [OPTIONS] <em>string</em> <em>command</em>
+Run <em>command</em> at specific date and time described by <em>string</em></p>
+<dl>
+<dt>--options=<em>LIST</em>; -o <em>LIST</em></dt><dd><p>Set comma separated EXTRA OPTIONS for all cron entries.</p>
+</dd>
+<dt>--preserve-env; -E</dt><dd><p>The <em>--preserve-env</em> option allows the current environment to be exported
+and used for the command being executed as part of the cron job. Normally,
+the broker environment is used.</p>
+</dd>
+<dt>--working-dir=<em>DIR</em>; -d <em>DIR</em></dt><dd><p>The <em>--working-dir</em> option allows the working directory to be set for the command
+being executed as part of the cron job. Normally, the working directory of
+the broker is used.</p>
+<dl class="simple">
+<dt><strong>list</strong></dt><dd><p>Display a list of current entries registered with the cron module and
+their current state, last run time, etc.</p>
+</dd>
+<dt><strong>stop</strong> <em>id</em></dt><dd><p>Stop cron entry <em>id</em>. The entry will remain in the cron entry list until
+deleted.</p>
+</dd>
+<dt><strong>start</strong> <em>id</em></dt><dd><p>Start a stopped cron entry <em>id</em>.</p>
+</dd>
+<dt><strong>delete</strong> [--kill] <em>id</em></dt><dd><p>Purge cron entry <em>id</em> from the flux-cron entry list. If <em>--kill</em> is used,
+kill any running task associated with entry <em>id</em>.</p>
+</dd>
+<dt><strong>dump</strong> [--key=KEY] <em>id</em></dt><dd><p>Dump all information for cron entry <em>id</em>. With <em>--key</em> print only the value
+for key <em>KEY</em>. For a list of keys run <em>flux cron dump ID</em>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="extra-options">
+<h2>EXTRA OPTIONS<a class="headerlink" href="#extra-options" title="Permalink to this headline">¶</a></h2>
+<p>For <code class="docutils literal notranslate"><span class="pre">flux-cron</span></code> commands allowing <code class="docutils literal notranslate"><span class="pre">--options</span></code>, the following EXTRA OPTIONS
+are supported:</p>
+<dl class="simple">
+<dt>timeout=<em>N</em></dt><dd><p>Set a timeout for tasks invoked for this cron entry to <em>N</em> seconds, where
+N can be a floating point number. Default is no timeout.</p>
+</dd>
+<dt>rank=<em>R</em></dt><dd><p>Set the rank on which to execute the cron command to <em>R</em>. Default is rank 0.</p>
+</dd>
+<dt>task-history-count=<em>N</em></dt><dd><p>Keep history for the last <em>N</em> tasks invoked by this cron entry. Default is 1.</p>
+</dd>
+<dt>stop-on-failure=<em>N</em></dt><dd><p>Automatically stop a cron entry if the failure count exceeds <em>N</em>. If <em>N</em> is
+zero (the default) then the cron entry will not be stopped on failure.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="operation">
+<h2>OPERATION<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h2>
+<p>The Flux cron module manages the set of currently configured cron
+jobs as a set of common entries, each with a unique ID supplied by
+a global sequence number and set of common attributes, options, and
+statistics. Basic attributes of a cron job include an optional <em>name</em>,
+the <em>command</em> to execute on the entry's trigger, the current <em>state</em> of
+the cron entry (stopped or not stopped), a <em>repeat</em> count indicating the
+total number of times to execute the cron job before stopping, and the
+<em>type</em> of entry.</p>
+<p>All cron entries also support a less common list of options, which may
+be set at creation time via a comma-separated list of <em>option=value</em>
+parameters passed to the <em>-o</em>, <em>--option=OPTS</em>. These options are described
+in the EXTRA OPTIONS section at the end of this document.</p>
+<p>Currently, flux-cron supports only two types of entries. The <em>interval</em>
+entry supports executing a command once every configured duration,
+optionally starting after a different time period. More detailed
+information about the interval type can be found in the documentation for
+the flux-cron <em>interval</em> command above. The <em>event</em> type entry supports
+running a command once every N events matching the configured event topic.
+More information about this type can be found in the documentation for
+<em>flux cron event</em>.</p>
+<p>The Flux cron module additionally keeps a common set of statistics for
+each entry, regardless of type . These include the creation time, last
+run time, and last time the cron entry was &quot;started&quot;, as well a count of
+total number of times the command was executed and a count of successful
+and failed runs. Currently, the stats for a cron entry may be viewed via
+the <em>flux cron dump</em> subcommand <em>stats.*</em> output.</p>
+<p>When registered, cron entries are automatically <em>started</em>, meaning they
+are eligible to run the configured command when the trigger condition
+is met. Entries may be <em>stopped</em>, either by use of the <em>flux cron stop</em>
+command, or if a <em>stop-on-failure</em> value is set. Stopped entries are
+restarted using <em>flux cron start</em>, at which point counters used for
+repeat and stop-on-failure are reset.</p>
+<p>Stopped entries are kept in the flux cron until deleted with <em>flux
+cron delete</em>. Active cron entries may also be deleted, with currently
+executing tasks optionally killed if the <em>--kill</em> option is provided.</p>
+</div>
+<div class="section" id="task-execution">
+<h2>TASK EXECUTION<a class="headerlink" href="#task-execution" title="Permalink to this headline">¶</a></h2>
+<p>As related above, cron entry commands are executed via the <em>cmb.exec</em>
+service, which is a low level execution service offered outside of any
+scheduler control, described in more detail in the <em>flux-exec(1)</em> man
+page.</p>
+<p>Standard output and error from tasks executed by the cron service are
+logged and may be viewed with <em>flux-dmesg(1)</em>. If a cron task exits
+with non-zero status, or fails to launch under the <em>cmb.exec</em> service,
+a message is logged and the failure is added to the failure stats.
+On task failure, the cron job is stopped if <em>stop-on-failure</em> is set, and
+the current failure count exceeds the configured value. By default,
+<em>stop-on-failure</em> is not set.</p>
+<p>By default, flux-cron module keeps information for the last task executed
+for each cron entry. This information can be viewed either via the
+<em>flux cron list</em> or <em>flux cron dump ID</em> subcommands. Data such as
+start and end time, exit status, rank, and PID for the task is available.
+The number of tasks kept for each cron entry may be individually tuned
+via the <em>task-history-count</em> option, described in the EXTRA OPTIONS section.</p>
+<p>Commands are normally executed immediately on the interval or event
+trigger for which they are configured. However, if the <em>sync-event</em>
+option is active on the cron module, tasks execution will be deferred
+until the next synchronization event. See the documentation above
+for <em>flux cron sync</em> for more information.</p>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>flux-exec(1), flux-dmesg(1)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux-dmesg.html" class="btn btn-neutral float-right" title="flux-dmesg(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux-content.html" class="btn btn-neutral float-left" title="flux-content(1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

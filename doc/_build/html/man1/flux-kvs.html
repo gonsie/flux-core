@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-kvs(1) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux-logger(1)" href="flux-logger.html" />
+    <link rel="prev" title="flux-keygen(1)" href="flux-keygen.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux-broker.html">flux-broker(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-content.html">flux-content(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-cron.html">flux-cron(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-dmesg.html">flux-dmesg(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-env.html">flux-env(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-event.html">flux-event(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-exec.html">flux-exec(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-getattr.html">flux-getattr(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-hwloc.html">flux-hwloc(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-jobs.html">flux-jobs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-keygen.html">flux-keygen(1)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-kvs(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands">COMMANDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux-logger.html">flux-logger(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-mini.html">flux-mini(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-module.html">flux-module(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-ping.html">flux-ping(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-proxy.html">flux-proxy(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-start.html">flux-start(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-version.html">flux-version(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.html">flux(1)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man1</a> &raquo;</li>
+        
+      <li>flux-kvs(1)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man1/flux-kvs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-kvs-1">
+<h1>flux-kvs(1)<a class="headerlink" href="#flux-kvs-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux</strong> <strong>kvs</strong> <em>COMMAND</em> [<em>OPTIONS</em>]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The Flux key-value store (KVS) is a simple, distributed data storage
+service used a building block by other Flux components.
+flux-kvs(1) is a command line utility that operates on the KVS.
+It is a very thin layer on top of a C API.</p>
+<p>The Flux KVS stores values under string keys. The keys are
+hierarchical, using &quot;.&quot; as a path separator, analogous to &quot;/&quot;
+separated UNIX file paths. A single &quot;.&quot; represents the root directory
+of the KVS.</p>
+<p>The KVS is distributed among the ranks of a comms session. Rank 0
+is the leader, and other ranks are caching followers. All writes are flushed
+to the leader during a commit operation. Data is stored in a hash tree
+such that every commit results in a new root hash. Each new root hash
+is multicast across the session. When followers update their root hash,
+they atomically update their view to match the leader. There may be a
+delay after a commit while old data is served on a follower that has not yet
+updated its root hash, thus the Flux KVS consistency model is &quot;eventually
+consistent&quot;. Followers cache data temporally and fault in new data through
+their parent in the overlay network.</p>
+<p>Different KVS namespaces can be created in which kvs values can be
+read from/written to. By default, all KVS operations operate on the
+default KVS namespace &quot;primary&quot;. An alternate namespace can be
+specified in most kvs commands via the <em>--namespace</em> option, or by
+setting the namespace in the environment variable FLUX_KVS_NAMESPACE.</p>
+<p>flux-kvs(1) runs a KVS <em>COMMAND</em>. The possible commands and their
+arguments are described below.</p>
+</div>
+<div class="section" id="commands">
+<h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>namespace create</strong> [-o owner] <em>name</em> [<em>name</em> ...]</dt><dd><p>Create a new kvs namespace. User may specify an alternate userid of a
+user that owns the namespace via <em>-o</em>. Specifying an alternate owner
+would allow a non-instance owner to read/write to a namespace.</p>
+</dd>
+<dt><strong>namespace remove</strong> <em>name</em> [<em>name...</em>]</dt><dd><p>Remove a kvs namespace.</p>
+</dd>
+<dt><strong>namespace list</strong></dt><dd><p>List all current namespaces and info on each namespace.</p>
+</dd>
+<dt><strong>get</strong> [-N ns] [-r|-t] [-a treeobj] [-l] [-W] [-w] [-u] [-A] [-f] [-c count] <em>key</em> [<em>key</em> ...]</dt><dd><p>Retrieve the value stored under <em>key</em>. If nothing has been stored
+under <em>key</em>, display an error message. Specify an alternate namespace
+to retrieve <em>key</em> from via <em>-N</em>. If no options, value is displayed
+with a newline appended (if value length is nonzero). If <em>-l</em>, a
+<em>key=</em> prefix is added. If <em>-r</em>, value is displayed without a newline.
+If <em>-t</em>, the RFC 11 object is displayed. <em>-a treeobj</em> causes the
+lookup to be relative to an RFC 11 snapshot reference. If <em>-W</em> is
+specified and a key does not exist, wait until the key has been
+created. If <em>-w</em>, after the initial value, display the new value each
+time the key is written to until interrupted, or if <em>-c count</em> is
+specified, until <em>count</em> values have been displayed. If <em>-u</em> is
+specified, only writes that change the key value will be displayed.
+If <em>-A</em> is specified, only display appends that occur on a key. By
+default, only a direct write to a key is monitored, which may miss
+several unique situations, such as the replacement of an entire parent
+directory. The <em>-f</em> option can be specified to monitor for many of
+these special situations.</p>
+</dd>
+<dt><strong>put</strong> [-N ns] [-O|-s] [-r|-t] [-n] [-A] <em>key=value</em> [<em>key=value</em> ...]</dt><dd><p>Store <em>value</em> under <em>key</em> and commit it. Specify an alternate
+namespace to commit value(s) via <em>-N</em>. If it already has a value,
+overwrite it. If no options, value is stored directly. If <em>-r</em> or
+<em>-t</em>, the value may optionally be read from standard input if
+specified as &quot;-&quot;. If <em>-r</em>, the value may include embedded NULL bytes.
+If <em>-t</em>, value is stored as a RFC 11 object. <em>-n</em> prevents the commit
+from being merged with with other contemporaneous commits. <em>-A</em>
+appends the value to a key instead of overwriting the value. Append
+is incompatible with the -j option. After a successful put, <em>-O</em> or
+<em>-s</em> can be specified to output the RFC11 treeobj or root sequence
+number of the root containing the put(s).</p>
+</dd>
+<dt><strong>ls</strong> [-N ns] [-R] [-d] [-F] [-w COLS] [-1] [<em>key</em> ...]</dt><dd><p>Display directory referred to by <em>key</em>, or &quot;.&quot; (root) if unspecified.
+Specify an alternate namespace to display via <em>-N</em>. Remaining options are
+roughly equivalent to a subset of ls(1) options. <em>-R</em> lists directory
+recursively. <em>-d</em> displays directory not its contents. <em>-F</em>
+classifies files with one character suffix (. is directory, &#64; is
+symlink). <em>-w COLS</em> sets the terminal width in characters. <em>-1</em>
+causes output to be displayed in one column.</p>
+</dd>
+<dt><strong>dir</strong> [-N ns] [-R] [-d] [-w COLS] [-a treeobj] [<em>key</em>]</dt><dd><p>Display all keys and their values under the directory <em>key</em>. Specify
+an alternate namespace to display via <em>-N</em>. If <em>key</em> does not exist
+or is not a directory, display an error message. If <em>key</em> is not
+provided, &quot;.&quot; (root of the namespace) is assumed. If <em>-R</em> is
+specified, recursively display keys under subdirectories. If <em>-d</em> is
+specified, do not output key values. Output is truncated to fit the
+terminal width. <em>-w COLS</em> sets the terminal width (0=unlimited). <em>-a
+treeobj</em> causes the lookup to be relative to an RFC 11 snapshot
+reference.</p>
+</dd>
+<dt><strong>unlink</strong> [-N ns] [-O|-s] [-R] [-f] <em>key</em> [<em>key</em> ...]</dt><dd><p>Remove <em>key</em> from the KVS and commit the change. Specify an alternate
+namespace to commit to via <em>-N</em>. If <em>key</em> represents a directory,
+specify <em>-R</em> to remove all keys underneath it. If <em>-f</em> is specified,
+ignore nonexistent files. After a successful unlink, <em>-O</em> or <em>-s</em> can
+be specified to output the RFC11 treeobj or root sequence number of
+the root containing the unlink(s).</p>
+</dd>
+<dt><strong>link</strong> [-N ns] [-T ns] [-O|-s] <em>target</em> <em>linkname</em></dt><dd><p>Create a new name for <em>target</em>, similar to a symbolic link, and commit
+the change. <em>target</em> does not have to exist. If <em>linkname</em> exists,
+it is overwritten. Specify an alternate namespace to commit linkname
+to via <em>-N</em>. Specify the target's namespace via <em>-T</em>. After a
+successfully created link, <em>-O</em> or <em>-s</em> can be specified to output the
+RFC11 treeobj or root sequence number of the root containing the link.</p>
+</dd>
+<dt><strong>readlink</strong> [-N ns] [-a treeobj] [ -o | -k ] <em>key</em> [<em>key</em> ...]</dt><dd><p>Retrieve the key a link refers to rather than its value, as would be
+returned by <strong>get</strong>. Specify an alternate namespace to retrieve from
+via <em>-N</em>. <em>-a treeobj</em> causes the lookup to be relative to an RFC 11
+snapshot reference. If the link points to a namespace, the namespace
+and key will be output in the format <em>&lt;namespace&gt;::&lt;key&gt;</em>. The <em>-o</em>
+can be used to only output namespaces and the <em>-k</em> can be used to only
+output keys.</p>
+</dd>
+<dt><strong>mkdir</strong> [-N ns] [-O|-s] <em>key</em> [<em>key</em> ...]</dt><dd><p>Create an empty directory and commit the change. If <em>key</em> exists,
+it is overwritten. Specify an alternate namespace to commit to via
+<em>-N</em>. After a successful mkdir, <em>-O</em> or <em>-s</em> can be specified to
+output the RFC11 treeobj or root sequence number of the root
+containing the new directory.</p>
+</dd>
+<dt><strong>copy</strong> [-S src-ns] [-D dst-ns] <em>source</em> <em>destination</em></dt><dd><p>Copy <em>source</em> key to <em>destination</em> key. Optionally, specify a source
+and/or destination namespace for the <em>source</em> and/or <em>destination</em>
+respectively. If a directory is copied, a new reference is created;
+it is unnecessary for <strong>copy</strong> to recurse into <em>source</em>.</p>
+</dd>
+<dt><strong>move</strong> [-S src-ns] [-D dst-ns] <em>source</em> <em>destination</em></dt><dd><p>Like <strong>copy</strong>, but <em>source</em> is unlinked after the copy.</p>
+</dd>
+<dt><strong>dropcache</strong> [--all]</dt><dd><p>Tell the local KVS to drop any cache it is holding. If <em>--all</em> is
+specified, send an event across the comms session instructing all KVS
+instances to drop their caches.</p>
+</dd>
+<dt><strong>version</strong> [-N ns]</dt><dd><p>Display the current KVS version, an integer value. The version starts
+at zero and is incremented on each KVS commit. Note that some commits
+may be aggregated for performance and the version will be incremented
+once for the aggregation, so it cannot be used as a direct count of
+commit requests. Specify an alternate namespace to retrieve the
+version from via <em>-N</em>.</p>
+</dd>
+<dt><strong>wait</strong> [-N ns] <em>version</em></dt><dd><p>Block until the KVS version reaches <em>version</em> or greater. A simple form
+of synchronization between peers is: node A puts a value, commits it,
+reads version, sends version to node B. Node B waits for version, gets
+value.</p>
+</dd>
+<dt><strong>getroot</strong> [-N ns] [-s | -o]</dt><dd><p>Retrieve the current KVS root, displaying it as an RFC 11 dirref object.
+Specify an alternate namespace to retrieve from via <em>-N</em>. If <em>-o</em> is
+specified, display the namespace owner. If <em>-s</em> is specified, display
+the root sequence number.</p>
+</dd>
+<dt><strong>eventlog get</strong> [-N ns] [-w] [-c count] [-u] <em>key</em></dt><dd><p>Display the contents of an RFC 18 KVS eventlog referred to by <em>key</em>.
+If <em>-u</em> is specified, display the log in raw form. If <em>-w</em> is
+specified, after the existing contents have been displayed, the
+eventlog is monitored and updates are displayed as they are committed.
+This runs until the program is interrupted or an error occurs, unless
+the number of events is limited with the <em>-c</em> option. Specify an
+alternate namespace to display from via <em>-N</em>.</p>
+</dd>
+<dt><strong>eventlog append</strong> [-N ns] [-t SECONDS] <em>key</em> <em>name</em> [<em>context</em> ...]</dt><dd><p>Append an event to an RFC 18 KVS eventlog referred to by <em>key</em>.
+The event <em>name</em> and optional <em>context</em> are specified on the command line.
+The timestamp may optionally be specified with <em>-t</em> as decimal seconds since
+the UNIX epoch (UTC), otherwise the current wall clock is used.
+Specify an alternate namespace to append to via <em>-N</em>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux-logger.html" class="btn btn-neutral float-right" title="flux-logger(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux-keygen.html" class="btn btn-neutral float-left" title="flux-keygen(1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-mini(1) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux-module(1)" href="flux-module.html" />
+    <link rel="prev" title="flux-logger(1)" href="flux-logger.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux-broker.html">flux-broker(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-content.html">flux-content(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-cron.html">flux-cron(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-dmesg.html">flux-dmesg(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-env.html">flux-env(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-event.html">flux-event(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-exec.html">flux-exec(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-getattr.html">flux-getattr(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-hwloc.html">flux-hwloc(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-jobs.html">flux-jobs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-keygen.html">flux-keygen(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-kvs.html">flux-kvs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-logger.html">flux-logger(1)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-mini(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-parameters">JOB PARAMETERS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standard-i-o">STANDARD I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exit-status">EXIT STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-options">OTHER OPTIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shell-options">SHELL OPTIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux-module.html">flux-module(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-ping.html">flux-ping(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-proxy.html">flux-proxy(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-start.html">flux-start(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-version.html">flux-version(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.html">flux(1)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man1</a> &raquo;</li>
+        
+      <li>flux-mini(1)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man1/flux-mini.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-mini-1">
+<h1>flux-mini(1)<a class="headerlink" href="#flux-mini-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux</strong> <strong>mini</strong> <strong>submit</strong> [OPTIONS] [<em>--ntasks=N</em>] COMMAND...</p>
+<p><strong>flux</strong> <strong>mini</strong> <strong>run</strong> [OPTIONS] [<em>--ntasks=N</em>] COMMAND...</p>
+<p><strong>flux</strong> <strong>mini</strong> <strong>batch</strong> [OPTIONS] <em>--nslots=N</em> SCRIPT...</p>
+<p><strong>flux</strong> <strong>mini</strong> <strong>alloc</strong> [OPTIONS] <em>--nslots=N</em> [COMMAND...]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>flux-mini(1) submits jobs to run under Flux. In the case of <strong>submit</strong>
+or <strong>run</strong> the job consists of <em>N</em> copies of COMMAND launched together
+as a parallel job, while <strong>batch</strong> and <strong>alloc</strong> submit a script or launch
+a command as the initial program of a new Flux instance.</p>
+<p>If <em>--ntasks</em> is unspecified, a value of <em>N=1</em> is assumed. Commands that
+take <em>--nslots</em> have no default and require that <em>--nslots</em> be explicitly
+specified.</p>
+<p>The <strong>submit</strong> and <strong>batch</strong> commands enqueue the job and print its numerical
+Job ID on standard output.</p>
+<p>The <strong>run</strong> and <strong>alloc</strong> commands do the same interactively, blocking until
+the job has completed.</p>
+<p>For <strong>flux-mini batch</strong>, the SCRIPT given on the command line is assumed
+to be a file name, unless the <em>--wrap</em> option used, and the script
+file is read and submitted along with the job. If no SCRIPT is
+provided, then one will be read from <em>stdin</em>.</p>
+<p><strong>flux-mini alloc</strong> works similarly to <strong>batch</strong>, but instead blocks until
+the job has started and interactively attaches to the new Flux instance.
+By default, a new shell is spawned as the initial program of the instance,
+but this may be overridden by supplying COMMAND on the command line.</p>
+<p>The intent is for the &quot;mini&quot; commands to remain simple with stable interfaces
+over time, making them suitable for use in scripts. For advanced usage,
+see flux-run(1) and flux-submit(1).</p>
+<p>The available OPTIONS are detailed below.</p>
+</div>
+<div class="section" id="job-parameters">
+<h2>JOB PARAMETERS<a class="headerlink" href="#job-parameters" title="Permalink to this headline">¶</a></h2>
+<p>These commands accept only the simplest parameters for expressing
+the size of the parallel program and the geometry of its task slots:</p>
+<p>The <strong>run</strong> and <strong>submit</strong> commands take the following options to specify
+the size of the job request:</p>
+<dl class="simple">
+<dt><strong>-n, --ntasks=N</strong></dt><dd><p>Set the number of tasks to launch (default 1).</p>
+</dd>
+<dt><strong>-c, --cores-per-task=N</strong></dt><dd><p>Set the number of cores to assign to each task (default 1).</p>
+</dd>
+<dt><strong>-g, --gpus-per-task=N</strong></dt><dd><p>Set the number of GPU devices to assign to each task (default none).</p>
+</dd>
+</dl>
+<p>The <strong>batch</strong> and <strong>alloc</strong> commands do not launch tasks directly, and
+therefore job parameters are specified in terms of resource slot size
+and number of slots. A resource slot can be thought of as the minimal
+resources required for a virtual task. The default slot size is 1 core.</p>
+<dl class="simple">
+<dt><strong>-n, --nslots=N</strong></dt><dd><p>Set the number of slots requested. This parameter is required.</p>
+</dd>
+<dt><strong>-c, --cores-per-slot=N</strong></dt><dd><p>Set the number of cores to assign to each slot (default 1).</p>
+</dd>
+<dt><strong>-g, --gpus-per-slot=N</strong></dt><dd><p>Set the number of GPU devices to assign to each slot (default none).</p>
+</dd>
+</dl>
+<p>The <strong>run</strong>, <strong>submit</strong>, <strong>batch</strong>, and <strong>alloc</strong> commands also take
+following additional job parameters:</p>
+<dl class="simple">
+<dt><strong>-N, --nodes=N</strong></dt><dd><p>Set the number of nodes to assign to the job. Tasks will be distributed
+evenly across the allocated nodes. It is an error to request more nodes
+than there are tasks. If unspecified, the number of nodes will be chosen
+by the scheduler.</p>
+</dd>
+<dt><strong>-t, --time-limit=FSD</strong></dt><dd><p>Set a time limit for the job in Flux standard duration (RFC 23).
+FSD is a floating point number with a single character units suffix
+(&quot;s&quot;, &quot;m&quot;, &quot;h&quot;, or &quot;d&quot;). If unspecified, the job is subject to the
+system default time limit.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="standard-i-o">
+<h2>STANDARD I/O<a class="headerlink" href="#standard-i-o" title="Permalink to this headline">¶</a></h2>
+<p>By default, task stdout and stderr streams are redirected to the
+KVS, where they may be accessed with the <code class="docutils literal notranslate"><span class="pre">flux</span> <span class="pre">job</span> <span class="pre">attach</span></code> command.</p>
+<p>In addition, <code class="docutils literal notranslate"><span class="pre">flux-mini</span> <span class="pre">run</span></code> processes standard I/O in real time,
+emitting the job's I/O to its stdout and stderr.</p>
+<dl class="simple">
+<dt><strong>--output=FILENAME</strong></dt><dd><p>Redirect stdout to the specified FILENAME, bypassing the KVS.
+The mustache template <em>{{id}}</em> is expanded to the numerical Job ID,
+useful to ensure FILENAME is unique across multiple jobs. For
+<strong>flux mini batch</strong> the default for FILENAME is <em>flux-{{id}}.out</em>.
+To force output to go to KVS so it is available with <code class="docutils literal notranslate"><span class="pre">flux</span> <span class="pre">job</span> <span class="pre">attach</span></code>,
+set FILENAME to <em>none</em> or <em>kvs</em>.</p>
+</dd>
+<dt><strong>--error=FILENAME</strong></dt><dd><p>Redirect stderr to the specified FILENAME, bypassing the KVS.
+The mustache template <em>{{id}}</em> is expanded as above.</p>
+</dd>
+<dt><strong>-l, --label-io</strong></dt><dd><p>Add task rank prefixes to each line of output.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="exit-status">
+<h2>EXIT STATUS<a class="headerlink" href="#exit-status" title="Permalink to this headline">¶</a></h2>
+<p>The job exit status, normally the largest task exit status, is stored
+in the KVS. If one or more tasks are terminated with a signal,
+the job exit status is 128+signo.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">flux-job</span> <span class="pre">attach</span></code> command exits with the job exit status.</p>
+<p>In addition, <code class="docutils literal notranslate"><span class="pre">flux-mini</span> <span class="pre">run</span></code> runs until the job completes and exits
+with the job exit status.</p>
+</div>
+<div class="section" id="other-options">
+<h2>OTHER OPTIONS<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>--priority=N</strong></dt><dd><p>Specify job priority, which affects queue order. Numerically higher priority
+jobs are considered by the scheduler first. Guests may submit jobs with
+priority in the range of 0 to 16, while instance owners may submit jobs
+with priority in the range of 0 to 31 (default 16).</p>
+</dd>
+<dt><strong>-v, --verbose</strong></dt><dd><p><em>(run only)</em> Increase verbosity on stderr. For example, currently <code class="docutils literal notranslate"><span class="pre">-v</span></code>
+displays jobid, <code class="docutils literal notranslate"><span class="pre">-vv</span></code> displays job events, and <code class="docutils literal notranslate"><span class="pre">-vvv</span></code> displays exec events.
+The specific output may change in the future.</p>
+</dd>
+<dt><strong>-o, --setopt=KEY[=VAL]</strong></dt><dd><p>Set shell option. Keys may include periods to denote hierarchy.
+VAL is optional and may be valid JSON (bare values, objects, or arrays),
+otherwise VAL is interpreted as a string. If VAL is not set, then the
+default value is 1. See SHELL OPTIONS below.</p>
+</dd>
+<dt><strong>--setattr=KEY=VAL</strong></dt><dd><p>Set jobspec attribute. Keys may include periods to denote hierarchy.
+VAL may be valid JSON (bare values, objects, or arrays), otherwise VAL
+is interpreted as a string.</p>
+</dd>
+<dt><strong>--dry-run</strong></dt><dd><p>Don't actually submit the job. Just emit jobspec on stdout and exit.</p>
+</dd>
+<dt><strong>--debug</strong></dt><dd><p>Enable job debug events, primarily for debugging Flux itself.
+The specific effects of this option may change in the future.</p>
+</dd>
+<dt><strong>-B, --broker-opts=OPT</strong></dt><dd><p><em>(batch only)</em> For batch jobs, pass specified options to the Flux brokers
+of the new instance. This option may be specified multiple times.</p>
+</dd>
+<dt><strong>--wrap</strong></dt><dd><p><em>(batch only)</em> The <code class="docutils literal notranslate"><span class="pre">--wrap</span></code> option wraps the specified COMMAND and ARGS in
+a shell script, by prefixing with <code class="docutils literal notranslate"><span class="pre">#!/bin/sh</span></code>. If no COMMAND is present,
+then a SCRIPT is read on stdin and wrapped in a /bin/sh script.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="shell-options">
+<h2>SHELL OPTIONS<a class="headerlink" href="#shell-options" title="Permalink to this headline">¶</a></h2>
+<p>These options are provided by built-in shell plugins that may be
+overridden in some cases:</p>
+<dl class="simple">
+<dt><strong>mpi=spectrum</strong></dt><dd><p>Load the MPI personality plugin for IBM Spectrum MPI. All other MPI
+plugins are loaded by default.</p>
+</dd>
+<dt><strong>cpu-affinity=per-task</strong></dt><dd><p>Tasks are distributed across the assigned resources.</p>
+</dd>
+<dt><strong>cpu-affinity=off</strong></dt><dd><p>Disable task affinity plugin.</p>
+</dd>
+<dt><strong>gpu-affinity=per-task</strong></dt><dd><p>GPU devices are distributed evenly among local tasks. Otherwise,
+GPU device affinity is to the job.</p>
+</dd>
+<dt><strong>gpu-affinity=off</strong></dt><dd><p>Disable GPU affinity for this job.</p>
+</dd>
+<dt><strong>verbose</strong></dt><dd><p>Increase verbosity of the job shell log.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux-module.html" class="btn btn-neutral float-right" title="flux-module(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux-logger.html" class="btn btn-neutral float-left" title="flux-logger(1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-hwloc(1) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux-jobs(1)" href="flux-jobs.html" />
+    <link rel="prev" title="flux-getattr(1)" href="flux-getattr.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux-broker.html">flux-broker(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-content.html">flux-content(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-cron.html">flux-cron(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-dmesg.html">flux-dmesg(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-env.html">flux-env(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-event.html">flux-event(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-exec.html">flux-exec(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-getattr.html">flux-getattr(1)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-hwloc(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands">COMMANDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nodeset-format">NODESET FORMAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux-jobs.html">flux-jobs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-keygen.html">flux-keygen(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-kvs.html">flux-kvs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-logger.html">flux-logger(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-mini.html">flux-mini(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-module.html">flux-module(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-ping.html">flux-ping(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-proxy.html">flux-proxy(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-start.html">flux-start(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-version.html">flux-version(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.html">flux(1)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man1</a> &raquo;</li>
+        
+      <li>flux-hwloc(1)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man1/flux-hwloc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-hwloc-1">
+<h1>flux-hwloc(1)<a class="headerlink" href="#flux-hwloc-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux</strong> <strong>hwloc</strong> <strong>info</strong> [<em>OPTIONS</em>]</p>
+<p><strong>flux</strong> <strong>hwloc</strong> <strong>lstopo</strong> [<em>lstopo-OPTIONS</em>]</p>
+<p><strong>flux</strong> <strong>hwloc</strong> <strong>reload</strong> [<em>OPTIONS</em>] [<em>DIR</em>]</p>
+<p><strong>flux</strong> <strong>hwloc</strong> <strong>topology</strong> [<em>OPTIONS</em>]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>flux-hwloc</strong> utility provides a mechanism to collect
+system topology from each flux-broker using the Portable Hardware
+Locality (hwloc) library, and to query the resulting data
+stored in the Flux Key Value Store (KVS).</p>
+</div>
+<div class="section" id="commands">
+<h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux hwloc</strong> requires a <em>COMMAND</em> argument. The supported commands
+are</p>
+<dl>
+<dt><strong>info</strong> [<em>-l,--local</em>|<em>-r,--rank=NODESET</em>]</dt><dd><p>Dump a short-form summary of the total number of Machines, Cores,
+and Processing Units (PUs) available across all flux-brokers
+in the current instance. With <em>--ranks</em>, dump information for
+only the specified ranks. With <em>--local</em> dump local system information.</p>
+</dd>
+<dt><strong>lstopo</strong></dt><dd><div class="line-block">
+<div class="line">Run <code class="docutils literal notranslate"><span class="pre">lstopo(1)</span></code> against the full hardware hierarchy configured in the
+current Flux instance. Extra <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code> are passed along to the system
+<code class="docutils literal notranslate"><span class="pre">lstopo(1)</span></code>.</div>
+<div class="line">By default, <strong>flux hwloc lstopo</strong> generates console output.
+For graphical output, try: <strong>flux hwloc lstopo --of graphical</strong>.</div>
+</div>
+</dd>
+<dt><strong>reload</strong> [<em>-r,--rank=NODESET</em>] [<em>-v,--verbose] ['DIR</em>]</dt><dd><p>Reload hwloc topology information, optionally loading hwloc XML files
+from <code class="docutils literal notranslate"><span class="pre">DIR/&lt;rank&gt;.xml</span></code> files. With <em>--rank</em> only reload XML on specified
+ranks. With <em>--verbose</em> this command runs with extra debugging and
+timing information.</p>
+</dd>
+<dt><strong>topology</strong> [<em>-l,--local</em>|<em>-r,--rank=NODESET</em>]</dt><dd><p>Dump current aggregate topology XML for the current session to stdout.
+With <em>--rank</em> only dump aggregate topology for specified ranks. With
+<em>--local</em> dump topology XML for the local system.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="nodeset-format">
+<h2>NODESET FORMAT<a class="headerlink" href="#nodeset-format" title="Permalink to this headline">¶</a></h2>
+<p>A NODESET is a comma separated list of integer ranks. Ranks may be
+listed individually or as a range in the form <em>l-k</em> where l &lt; k.</p>
+<p>Some examples of nodesets.</p>
+<dl class="simple">
+<dt>``1''</dt><dd><p>rank 1</p>
+</dd>
+<dt>``0-3''</dt><dd><p>ranks 0, 1, 2, and 3 listed in a range</p>
+</dd>
+<dt>``0,1,2,3''</dt><dd><p>ranks 0, 1, 2, and 3 listed individually</p>
+</dd>
+<dt>``2,5''</dt><dd><p>ranks 2 and 5</p>
+</dd>
+<dt>``2,4-5''</dt><dd><p>ranks 2, 4, and 5</p>
+</dd>
+</dl>
+<p>As a special case, the string ``<em>all</em>'' can be specified to indicate every
+rank available in the flux instance.</p>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>lstopo(1), hwloc: <a class="reference external" href="https://www.open-mpi.org/projects/hwloc/">https://www.open-mpi.org/projects/hwloc/</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux-jobs.html" class="btn btn-neutral float-right" title="flux-jobs(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux-getattr.html" class="btn btn-neutral float-left" title="flux-getattr(1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-module(1) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux-ping(1)" href="flux-ping.html" />
+    <link rel="prev" title="flux-mini(1)" href="flux-mini.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux-broker.html">flux-broker(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-content.html">flux-content(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-cron.html">flux-cron(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-dmesg.html">flux-dmesg(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-env.html">flux-env(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-event.html">flux-event(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-exec.html">flux-exec(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-getattr.html">flux-getattr(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-hwloc.html">flux-hwloc(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-jobs.html">flux-jobs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-keygen.html">flux-keygen(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-kvs.html">flux-kvs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-logger.html">flux-logger(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-mini.html">flux-mini(1)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-module(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands">COMMANDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stats-options">STATS OPTIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debug-options">DEBUG OPTIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-output">LIST OUTPUT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-symbols">MODULE SYMBOLS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux-ping.html">flux-ping(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-proxy.html">flux-proxy(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-start.html">flux-start(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-version.html">flux-version(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.html">flux(1)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man1</a> &raquo;</li>
+        
+      <li>flux-module(1)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man1/flux-module.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-module-1">
+<h1>flux-module(1)<a class="headerlink" href="#flux-module-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux</strong> <strong>module</strong> <em>COMMAND</em> [<em>OPTIONS</em>]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>flux-module(1) manages dynamically loadable Flux modules.
+It can load/remove/list modules for the flux-broker(1), and for other
+Flux services that support dynamic module extensions.</p>
+</div>
+<div class="section" id="commands">
+<h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>info</strong> [<em>name</em>]</dt><dd><p>Display information about module <em>name</em>.
+If <em>name</em> includes a slash <em>/</em> character, it is interpreted as a
+file path, and the module name is then determined by reading the
+<strong>mod_name</strong> symbol. Otherwise, FLUX_MODULE_PATH is searched for a module
+with <strong>mod_name</strong> equal to <em>name</em>.</p>
+</dd>
+<dt><strong>load</strong> <em>name</em> [<em>module-arguments</em> …​]</dt><dd><p>Load module <em>name</em>, interpreted as described above.
+The service that will load the module is inferred
+from the module name. When the load command completes successfully,
+the new module is ready to accept messages on all targeted ranks.</p>
+</dd>
+<dt><strong>remove</strong> [--force] <em>name</em></dt><dd><p>Remove module <em>name</em>. The service that will unload the module is
+inferred from the name specified on the command line. If <em>-f, --force</em>
+is used, then do not error if module <em>name</em> is not loaded.</p>
+</dd>
+<dt><strong>reload</strong> [--force] <em>name</em> [<em>module-arguments</em> …​]</dt><dd><p>Reload module <em>name</em>. This is equivalent to running <em>flux module remove</em>
+followed by <em>flux module load</em>. It is a fatal error if module <em>name</em> is
+not loaded during removal unless the <code class="docutils literal notranslate"><span class="pre">-f,</span> <span class="pre">--force</span></code> option is specified.</p>
+</dd>
+<dt><strong>list</strong> [<em>service</em>]</dt><dd><p>List modules loaded by <em>service</em>, or by flux-broker(1) if <em>service</em> is unspecified.</p>
+</dd>
+<dt><strong>stats</strong> [<em>OPTIONS</em>] [<em>name</em>]</dt><dd><p>Request statistics from module <em>name</em>. A JSON object containing a set of
+counters for each type of Flux message is returned by default, however
+the object may be customized on a module basis.</p>
+</dd>
+<dt><strong>debug</strong> [<em>OPTIONS</em>] [<em>name</em>]</dt><dd><p>Manipulate debug flags in module <em>name</em>. The interpretation of debug
+flag bits is private to the module and its test drivers.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="stats-options">
+<h2>STATS OPTIONS<a class="headerlink" href="#stats-options" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>-p, --parse</strong><em>=OBJNAME</em></dt><dd><p>OBJNAME is a period delimited list of field names that should be walked
+to obtain a specific value or object in the returned JSON.</p>
+</dd>
+<dt><strong>-t, --type</strong><em>=int|double</em></dt><dd><p>Force the returned value to be converted to int or double.</p>
+</dd>
+<dt><strong>-s, --scale</strong><em>=N</em></dt><dd><p>Multiply the returned (int or double) value by the specified
+floating point value.</p>
+</dd>
+<dt><strong>-R, --rusage</strong></dt><dd><p>Return a JSON object representing an <em>rusage</em> structure
+returned by getrusage(2).</p>
+</dd>
+<dt><strong>-c, --clear</strong></dt><dd><p>Send a request message to clear statistics in the target module.</p>
+</dd>
+<dt><strong>-C, --clear-all</strong></dt><dd><p>Broadcast an event message to clear statistics in the target module
+on all ranks.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="debug-options">
+<h2>DEBUG OPTIONS<a class="headerlink" href="#debug-options" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>-c, --clear</strong></dt><dd><p>Set debug flags to zero.</p>
+</dd>
+<dt><strong>-S, --set</strong><em>=MASK</em></dt><dd><p>Set debug flags to MASK.
+The value may be prefixed with 0x to indicate hexadecimal or 0
+to indicate octal, otherwise the value is interpreted as decimal.</p>
+</dd>
+<dt><strong>-c, --clearbit</strong><em>=MASK</em></dt><dd><p>Clear the debug bits specified in MASK without disturbing other bits.
+The value is interpreted as above.</p>
+</dd>
+<dt><strong>-s, --setbit</strong><em>=MASK</em></dt><dd><p>Set the debug bits specified in MASK without disturbing other bits.
+The value is interpreted as above.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="list-output">
+<h2>LIST OUTPUT<a class="headerlink" href="#list-output" title="Permalink to this headline">¶</a></h2>
+<p>The <em>list</em> command displays one line for each unique (as determined by
+SHA1 hash) module loaded by a service.</p>
+<dl class="simple">
+<dt><strong>Module</strong></dt><dd><p>The value of the <strong>mod_name</strong> symbol for this module.</p>
+</dd>
+<dt><strong>Size</strong></dt><dd><p>The size in bytes of the module .so file.</p>
+</dd>
+<dt><strong>Digest</strong></dt><dd><p>The last 7 characters of the SHA1 digest of the contents of
+the module .so file.</p>
+</dd>
+<dt><strong>Idle</strong></dt><dd><p>Idle times are defined for flux-broker(1) comms modules as the number of
+heartbeats since the module last sent a request or response message.
+The idle time may be defined differently for other services, or have no
+meaning.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="module-symbols">
+<h2>MODULE SYMBOLS<a class="headerlink" href="#module-symbols" title="Permalink to this headline">¶</a></h2>
+<p>All Flux modules define the following global symbols:</p>
+<dl class="simple">
+<dt><strong>const char *mod_name;</strong></dt><dd><p>A null-terminated string defining the module name.
+Module names are words delimited by periods, with the service that
+will load the module indicated by the words that prefix the final one.
+If there is no prefix, the module is loaded by flux-broker(1).</p>
+</dd>
+<dt><strong>int mod_main (void *context, int argc, char **argv);</strong></dt><dd><p>An entry function.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p>syslog(3)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux-ping.html" class="btn btn-neutral float-right" title="flux-ping(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux-mini.html" class="btn btn-neutral float-left" title="flux-mini(1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

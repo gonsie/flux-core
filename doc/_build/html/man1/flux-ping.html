@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flux-ping(1) &mdash; flux-core  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flux-proxy(1)" href="flux-proxy.html" />
+    <link rel="prev" title="flux-module(1)" href="flux-module.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> flux-core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual pages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">man1</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flux-broker.html">flux-broker(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-content.html">flux-content(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-cron.html">flux-cron(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-dmesg.html">flux-dmesg(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-env.html">flux-env(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-event.html">flux-event(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-exec.html">flux-exec(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-getattr.html">flux-getattr(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-hwloc.html">flux-hwloc(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-jobs.html">flux-jobs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-keygen.html">flux-keygen(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-kvs.html">flux-kvs(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-logger.html">flux-logger(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-mini.html">flux-mini(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-module.html">flux-module(1)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flux-ping(1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">OPTIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">EXAMPLES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">RESOURCES</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flux-proxy.html">flux-proxy(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-start.html">flux-start(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux-version.html">flux-version(1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux.html">flux(1)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../man3/index.html">man3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man5/index.html">man5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man7/index.html">man7</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.html">flux package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/flux.core.html">flux.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/modules.html">python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bindings/python/setup.html">setup module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">flux-core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">man1</a> &raquo;</li>
+        
+      <li>flux-ping(1)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/man1/flux-ping.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flux-ping-1">
+<h1>flux-ping(1)<a class="headerlink" href="#flux-ping-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>flux</strong> <strong>ping</strong> [<em>OPTIONS</em>] target</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>flux-ping(1) measures round-trip latency to a Flux service implementing
+the &quot;ping&quot; method in a manner analogous to ping(8). The ping response is
+essentially an echo of the request, with the route taken to the service
+added by the service. This route is displayed in the output and can
+give insight into how various addresses are routed.</p>
+<p><em>target</em> may be the name of a comms module service, e.g. &quot;kvs&quot;.
+flux-ping(1) will send a request to &quot;kvs.ping&quot;. As a shorthand,
+<em>target</em> can include a rank prefix delimited by an exclamation point.
+&quot;flux ping 4!kvs&quot; is equivalent to &quot;flux ping --rank 4 kvs&quot; (see --rank
+option below). Don't forget to quote the exclamation point if it is
+interpreted by your shell.</p>
+<p>As a shorthand, <em>target</em> may also simply be a rank by itself
+indicating that the broker on that rank or ranks, rather than a comms
+module, is to be pinged. &quot;flux ping 1&quot; is equivalent to
+&quot;flux ping --rank 1 cmb&quot;.</p>
+</div>
+<div class="section" id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>-r, --rank</strong><em>=N</em></dt><dd><p>Find target on a specific broker rank. Special case strings “<em>any</em>”
+and “<em>upstream</em>” available to ping FLUX_NODEID_ANY and FLUX_NODEID_UPSTREAM
+respectively. Default: send to “<em>any</em>”.</p>
+</dd>
+<dt><strong>-p, --pad</strong><em>=N</em></dt><dd><p>Include in the payload a string of length <em>N</em> bytes. The payload will be
+echoed back in the response. This option can be used to explore the
+effect of message size on latency. Default: no padding.</p>
+</dd>
+<dt><strong>-i, --interval</strong><em>=N</em></dt><dd><p>Specify the delay, in seconds, between successive requests.
+A value of zero is valid and indicates that there should be no delay.
+Requests are sent without waiting for responses. Default: 1.0 seconds.</p>
+</dd>
+<dt><strong>-c, --count</strong><em>=N</em></dt><dd><p>Specify the number of requests to send, and terminate the command once
+responses have been received for all the requests. Default: unlimited.</p>
+</dd>
+<dt><strong>-b, --batch</strong></dt><dd><p>Begin processing responses after all requests are sent. Requires --count.</p>
+</dd>
+<dt><strong>-u, --userid</strong></dt><dd><p>Include userid and rolemask of original request, which are echoed back
+in ping response, in ping output.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>EXAMPLES<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>One can ping a service by name, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ flux ping kvs
+kvs.ping pad=0 seq=0 time=0.774 ms (0EB02!A3368!0!382A6)
+kvs.ping pad=0 seq=1 time=0.686 ms (0EB02!A3368!0!382A6)
+...
+</pre></div>
+</div>
+<p>This tells you that the local &quot;kvs&quot; comms module is alive and the
+round-trip latency is a bit over half a millisecond. The route hops are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="n">EB02</span><span class="p">:</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">ping</span> <span class="n">command</span>
+<span class="n">A3368</span><span class="p">:</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">API</span> <span class="n">module</span>
+<span class="mi">0</span><span class="p">:</span>     <span class="n">rank</span> <span class="n">of</span> <span class="n">the</span> <span class="n">local</span> <span class="n">broker</span>
+<span class="mi">382</span><span class="n">A6</span><span class="p">:</span> <span class="n">UUID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">KVS</span> <span class="n">module</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resources">
+<h2>RESOURCES<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Github: <a class="reference external" href="http://github.com/flux-framework">http://github.com/flux-framework</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flux-proxy.html" class="btn btn-neutral float-right" title="flux-proxy(1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flux-module.html" class="btn btn-neutral float-left" title="flux-module(1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright Copyright 2014 Lawrence Livermore National Security, LLC and Flux developers.
+
+SPDX-License-Identifier: LGPL-3.0
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
